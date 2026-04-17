@@ -1341,7 +1341,7 @@
     var lastScroll = 0;
     window.addEventListener('scroll', function () {
       var currentScroll = window.scrollY;
-      
+
       // Toggle background opacity
       nav.classList.toggle('scrolled', currentScroll > 50);
 
@@ -1351,7 +1351,7 @@
       } else {
         nav.classList.remove('nav-hidden');
       }
-      
+
       lastScroll = currentScroll <= 0 ? 0 : currentScroll;
     }, { passive: true });
     var hamburger = document.getElementById('hamburger'), mobileMenu = document.getElementById('mobileMenu');
