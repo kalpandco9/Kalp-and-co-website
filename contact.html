@@ -72,8 +72,12 @@
       left: 0;
       right: 0;
       z-index: 200;
-      transition: background .4s ease, border-color .4s;
+      transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1), background .4s ease, border-color .4s;
       border-bottom: 1px solid transparent
+    }
+
+    nav.nav-hidden {
+      transform: translateY(-100%)
     }
 
     nav.scrolled {
@@ -540,17 +544,25 @@
     .social-link {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      letter-spacing: .18em;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--warm-gray);
       text-decoration: none;
-      transition: color .2s
+      transition: color .2s, gap .2s
     }
 
     .social-link:hover {
-      color: var(--gold)
+      color: var(--gold);
+      gap: 12px
+    }
+
+    .social-link svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0
     }
 
     /* FORM */
@@ -1100,7 +1112,7 @@
     <div class="contact-left reveal">
       <h1
         style="font-family:'Cormorant Garamond',serif;font-size:clamp(42px,5.5vw,72px);font-weight:300;line-height:1.05;margin-bottom:18px">
-        Tell us about your <em style="font-style:italic;color:var(--gold)">project...</em></h1>
+        Tell us about your <em style="font-style:italic;color:var(--gold)">project</em></h1>
       <p style="font-size:15px;color:var(--warm-gray);line-height:1.8;margin-bottom:44px">Whether you're a brand looking
         to grow or just starting out, we're here to help.</p>
       <div class="contact-details">
@@ -1133,9 +1145,13 @@
         </div>
       </div>
       <div class="social-links">
-        <a href="#" class="social-link">Instagram &#8599;</a>
-        <a href="#" class="social-link">LinkedIn &#8599;</a>
-        <a href="#" class="social-link">YouTube &#8599;</a>
+        <a href="https://www.instagram.com/kalpandco" class="social-link" target="_blank" rel="noopener"><svg
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <circle cx="12" cy="12" r="5" />
+            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
+          </svg> Instagram &#8599;</a>
       </div>
     </div>
     <div class="contact-form reveal">
@@ -1164,7 +1180,13 @@
           <option>Post Production</option>
           <option>Full-Service Partnership</option>
           <option>Studio Booking</option>
+          <option value="Other">Other</option>
         </select>
+      </div>
+      <div class="form-group form-group-other" id="other-service-group"
+        style="max-height:0;overflow:hidden;opacity:0;margin-top:-10px;transition:max-height .4s ease,opacity .3s ease,margin-top .3s ease;padding:0">
+        <label for="other-service">Please Specify</label>
+        <input id="other-service" type="text" placeholder="e.g. Influencer Marketing, Event Coverage…">
       </div>
       <div class="form-group"><label for="budget">Approximate Budget</label>
         <select id="budget">
@@ -1316,7 +1338,22 @@
     function animateCursor() { cursor.style.left = (mx - 5) + 'px'; cursor.style.top = (my - 5) + 'px'; rx += (mx - rx) * .12; ry += (my - ry) * .12; ring.style.left = (rx - 18) + 'px'; ring.style.top = (ry - 18) + 'px'; requestAnimationFrame(animateCursor) }
     animateCursor();
     var nav = document.getElementById('navbar');
-    window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 60) });
+    var lastScroll = 0;
+    window.addEventListener('scroll', function () {
+      var currentScroll = window.scrollY;
+      
+      // Toggle background opacity
+      nav.classList.toggle('scrolled', currentScroll > 50);
+
+      // Hide/Show logic based on direction
+      if (currentScroll > lastScroll && currentScroll > 150) {
+        nav.classList.add('nav-hidden');
+      } else {
+        nav.classList.remove('nav-hidden');
+      }
+      
+      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+    }, { passive: true });
     var hamburger = document.getElementById('hamburger'), mobileMenu = document.getElementById('mobileMenu');
     hamburger.addEventListener('click', function () { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '' });
     mobileMenu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = '' }) });
@@ -1332,6 +1369,23 @@
         document.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open') });
         if (!isOpen) item.classList.add('open');
       });
+    });
+    // OTHER SERVICE TOGGLE
+    var serviceSelect = document.getElementById('service');
+    var otherGroup = document.getElementById('other-service-group');
+    serviceSelect.addEventListener('change', function () {
+      if (this.value === 'Other') {
+        otherGroup.style.maxHeight = '120px';
+        otherGroup.style.opacity = '1';
+        otherGroup.style.marginTop = '0';
+        otherGroup.style.padding = '';
+        document.getElementById('other-service').focus();
+      } else {
+        otherGroup.style.maxHeight = '0';
+        otherGroup.style.opacity = '0';
+        otherGroup.style.marginTop = '-10px';
+        otherGroup.style.padding = '0';
+      }
     });
     // FORM SUBMIT
     document.getElementById('submit-btn').addEventListener('click', function (e) {
