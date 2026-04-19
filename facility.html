@@ -4,9 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Facility — Kalp &amp; Co | In-House Studio, Lavelle Road, Bangalore</title>
+  <link rel="icon" type="image/png" href="assets/kalp-logo-black.png">
+  <title>Facility — Kalp &amp; Co | In-House Studio, Vittal Mallya Rd, Bengaluru</title>
   <meta name="description"
-    content="Tour the Kalp & Co studio on Lavelle Road, Bangalore — a purpose-built creative facility with cyclorama photography suite, 4K video production, and full post production.">
+    content="Tour the Kalp & Co studio on Vittal Mallya Rd, Bangalore — a purpose-built creative facility with cyclorama photography suite, 4K video production, and full post production.">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kalp & Co">
+  <meta property="og:title" content="Facility — Kalp & Co | In-House Studio, Bangalore">
+  <meta property="og:description" content="Tour our purpose-built creative facility — cyclorama photography suite, 4K video production, and full post production on Vittal Mallya Rd, Bengaluru.">
+  <meta property="og:image" content="https://kalpandco.com/assets/kalp-logo-black.png">
+  <meta property="og:url" content="https://kalpandco.com/facility.html">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Facility — Kalp & Co | In-House Studio, Bangalore">
+  <meta name="twitter:description" content="Tour our purpose-built creative facility on Vittal Mallya Rd, Bengaluru.">
+  <meta name="twitter:image" content="https://kalpandco.com/assets/kalp-logo-black.png">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap"
     rel="stylesheet">
@@ -25,7 +38,7 @@
       --gold: #c9a84c;
       --gold-light: #e8ca7a;
       --warm-gray: #7a776f;
-      --charcoal: #1c1b18;
+      --charcoal: #2a2720;
       --section-pad: 120px
     }
 
@@ -116,6 +129,13 @@
       text-transform: uppercase;
       color: var(--warm-gray);
       margin-top: 3px
+    }
+
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      display: block
     }
 
     .nav-cta {
@@ -907,22 +927,19 @@
     }
 
     .map-placeholder {
-      background: var(--charcoal);
-      border: 1px solid rgba(201, 168, 76, .1);
-      min-height: 380px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border: 1px solid rgba(201, 168, 76, .2);
+      height: 440px;
       position: relative;
       overflow: hidden;
       margin-bottom: 56px
     }
 
-    .map-placeholder::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(201, 168, 76, .06) 0%, transparent 70%)
+    .map-placeholder iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      filter: grayscale(30%) contrast(1.05)
     }
 
     .map-inner {
@@ -1049,6 +1066,13 @@
 
     .footer-logo span {
       color: var(--gold)
+    }
+
+    .footer-logo img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      display: block
     }
 
     .footer-links {
@@ -1183,8 +1207,7 @@
   <div class="cursor-ring" id="cursorRing"></div>
   <nav id="navbar">
     <div class="nav-top">
-      <a href="index.html" class="nav-logo">Kalp<span>&amp;</span>Co<span class="nav-logo-sub">Creative Agency &middot;
-          Bangalore</span></a>
+      <a href="index.html" class="nav-logo"><img src="assets/kalp-logo-black.png" alt="Kalp & Co Logo"></a>
       <a href="contact.html" class="nav-cta">Start a Project</a>
       <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -1219,7 +1242,7 @@
             <li><a href="#suites"><span class="dd-icon">&#9672;</span> Photography Suite</a></li>
             <li><a href="#video-suite"><span class="dd-icon">&#9672;</span> Video Production</a></li>
             <li><a href="#post-suite"><span class="dd-icon">&#9672;</span> Post Production Suite</a></li>
-            <li><a href="#location"><span class="dd-icon">&#9672;</span> Lavelle Road, Bangalore</a></li>
+            <li><a href="#location"><span class="dd-icon">&#9672;</span> Vittal Mallya Rd, Bengaluru</a></li>
           </ul>
         </li>
         <li class="nav-divider"></li>
@@ -1250,8 +1273,8 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="mobile-menu-info">
-      <p>hello@kalpandco.com</p>
-      <p style="margin-top:5px">Lavelle Road, Bangalore</p>
+      <p>kalpandco9@gmail.com</p>
+      <p style="margin-top:5px">Vittal Mallya Rd, Bengaluru</p>
     </div>
   </div>
 
@@ -1265,7 +1288,7 @@
       <p class="page-sub">Most agencies brief external studios. We built our own. A purpose-built creative space
         engineered for speed, quality, and complete brand control.</p>
       <div class="page-hero-meta">
-        <span>Lavelle Road, Bangalore</span>
+        <span>Vittal Mallya Rd, Bengaluru</span>
         <span style="margin-top:5px">560001</span>
       </div>
     </div>
@@ -1279,13 +1302,13 @@
       <span class="marquee-item">Post Production Suite</span><span class="marquee-item marquee-dot">+</span>
       <span class="marquee-item">Styling Room</span><span class="marquee-item marquee-dot">+</span>
       <span class="marquee-item">Pre-Production Room</span><span class="marquee-item marquee-dot">+</span>
-      <span class="marquee-item">Lavelle Road</span><span class="marquee-item marquee-dot">+</span>
+      <span class="marquee-item">Vittal Mallya Rd</span><span class="marquee-item marquee-dot">+</span>
       <span class="marquee-item">Cyclorama Studio</span><span class="marquee-item marquee-dot">+</span>
       <span class="marquee-item">4K Video Production</span><span class="marquee-item marquee-dot">+</span>
       <span class="marquee-item">Post Production Suite</span><span class="marquee-item marquee-dot">+</span>
       <span class="marquee-item">Styling Room</span><span class="marquee-item marquee-dot">+</span>
       <span class="marquee-item">Pre-Production Room</span><span class="marquee-item marquee-dot">+</span>
-      <span class="marquee-item">Lavelle Road</span><span class="marquee-item marquee-dot">+</span>
+      <span class="marquee-item">Vittal Mallya Rd</span><span class="marquee-item marquee-dot">+</span>
     </div>
   </div>
 
@@ -1298,7 +1321,7 @@
         <p>From professional lighting rigs to full post-production, our facility is built for one purpose: making your
           brand impossible to ignore. No vendors, no guesswork &mdash; just high-quality content created under one roof.
         </p>
-        <div class="facility-address">&#9679; Kalp &amp; Co Studio &mdash; Lavelle Road, Bangalore 560001</div>
+        <div class="facility-address">&#9679; Kalp &amp; Co Studio &mdash; Vittal Mallya Rd, Bengaluru 560001</div>
       </div>
       <div class="facility-visual reveal">
         <div class="facility-mock">
@@ -1352,7 +1375,7 @@
     <div class="spec-item">
       <div class="spec-icon">&#11041;</div>
       <h3 class="spec-title">Central Bangalore</h3>
-      <p class="spec-desc">Lavelle Road &mdash; the heart of Bangalore's business district. Easily accessible with parking, in a professional environment befitting your brand.</p>
+      <p class="spec-desc">Vittal Mallya Rd &mdash; the heart of Bangalore's business district. Easily accessible with parking, in a professional environment befitting your brand.</p>
       <span class="spec-badge">Location</span>
     </div>
   </div>
@@ -1412,11 +1435,11 @@
       <div class="reveal">
         <div class="section-label">Where To Find Us</div>
         <h2>Right in the heart of <em>Bangalore.</em></h2>
-        <p>Our studio is located on Lavelle Road.</p>
+        <p>Our studio is located on Vittal Mallya Rd.</p>
         <p>Come for a studio tour, creative briefing, or client walkthrough — our doors are open Monday to Saturday.</p>
         <div class="location-details">
           <div class="loc-item"><span class="loc-icon">&#9679;</span>
-            <div class="loc-info"><strong>Studio Address</strong><span>Lavelle Road, Bangalore, Karnataka 560001</span>
+            <div class="loc-info"><strong>Studio Address</strong><span>No.33/1 PJD No.76-22-33/1, Fourth Floor, Vittal Mallya Rd, Bengaluru, Karnataka, Pin: 560001</span>
             </div>
           </div>
           <div class="loc-item"><span class="loc-icon">&#9681;</span>
@@ -1424,10 +1447,10 @@
                 IST</span></div>
           </div>
           <div class="loc-item"><span class="loc-icon">&#9993;</span>
-            <div class="loc-info"><strong>Email Us</strong><span>hello@kalpandco.com</span></div>
+            <div class="loc-info"><strong>Email Us</strong><span>kalpandco9@gmail.com</span></div>
           </div>
           <div class="loc-item"><span class="loc-icon">&#9742;</span>
-            <div class="loc-info"><strong>Call Us</strong><span>+91 98XXX XXXXX</span></div>
+            <div class="loc-info"><strong>Call Us</strong><span>94822 12222</span></div>
           </div>
         </div>
       </div>
@@ -1441,8 +1464,8 @@
           <h3
             style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;margin-bottom:12px;position:relative">
             Kalp &amp; Co Studio</h3>
-          <p style="font-size:13px;color:var(--warm-gray);line-height:1.7;position:relative;max-width:260px">Lavelle
-            Road, Bangalore<br>Karnataka, India 560001</p>
+          <p style="font-size:13px;color:var(--warm-gray);line-height:1.7;position:relative;max-width:260px">
+            No.33/1 PJD No.76-22-33/1, Fourth Floor,<br>Vittal Mallya Rd, Bengaluru,<br>Karnataka, India 560001</p>
           <a href="contact.html"
             style="margin-top:32px;display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:13px 28px;text-decoration:none;transition:background .2s;position:relative">Book
             a Studio Tour <span>&#8594;</span></a>
@@ -1452,21 +1475,21 @@
   </section>
 
   <section id="location">
-    <div class="map-placeholder reveal">
-      <div class="map-inner">
-        <div class="map-icon">&#9679;</div>
-        <p>Lavelle Road, Bangalore</p>
-        <span>Interactive map — add Google Maps embed here</span>
-      </div>
+    <div class="map-placeholder reveal" style="min-height:420px;padding:0">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9976271867796!2d77.5943!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae168c9b4c9d45%3A0x1e5a7eecb2a53a8c!2sVittal%20Mallya%20Rd%2C%20Bengaluru%2C%20Karnataka%20560001!5e0!3m2!1sen!2sin!4v1713000000000!5m2!1sen!2sin"
+        width="100%" height="420" style="border:0;display:block;filter:grayscale(40%) contrast(1.1) brightness(0.85)"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Kalp &amp; Co Location — Vittal Mallya Rd, Bengaluru"></iframe>
     </div>
     <div class="map-address-bar reveal">
       <div class="address-fact">
-        <div class="af-label">Address</div>
-        <div class="af-value">Lavelle Road, Bangalore 560001</div>
+        <div class="af-label">Studio Address</div>
+        <div class="af-value">No.33/1 PJD No.76-22-33/1, Fourth Floor, Vittal Mallya Rd, Bengaluru</div>
       </div>
       <div class="address-fact">
-        <div class="af-label">Nearest Landmark</div>
-        <div class="af-value">Lavelle Road, MG Road Area</div>
+        <div class="af-label">Phone</div>
+        <div class="af-value">94822 12222</div>
       </div>
       <div class="address-fact">
         <div class="af-label">Studio Hours</div>
@@ -1485,14 +1508,14 @@
   </section>
 
   <footer>
-    <div class="footer-logo">Kalp<span>&amp;</span>Co</div>
+    <div class="footer-logo"><img src="assets/kalp-logo-black.png" alt="Kalp & Co Logo"></div>
     <ul class="footer-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="work.html">Work Done</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <p class="footer-copy">&copy; 2025 Kalp &amp; Co. Lavelle Road, Bangalore.</p>
+    <p class="footer-copy">&copy; 2025 Kalp &amp; Co. Vittal Mallya Rd, Bengaluru.</p>
   </footer>
   <script>
     var cursor = document.getElementById('cursor'), ring = document.getElementById('cursorRing'), mx = 0, my = 0, rx = 0, ry = 0;

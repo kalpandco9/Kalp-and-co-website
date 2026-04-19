@@ -4,9 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/kalp-logo-black.png">
   <title>Work Done — Kalp &amp; Co | Portfolio &amp; Case Studies, Bangalore</title>
   <meta name="description"
     content="Explore Kalp & Co's portfolio — photography, social media campaigns, brand films, branding projects, and outdoor advertising work for brands across India.">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kalp & Co">
+  <meta property="og:title" content="Work Done — Kalp & Co | Portfolio & Case Studies">
+  <meta property="og:description" content="Photography, social media campaigns, brand films, branding projects, and outdoor advertising work for brands across India.">
+  <meta property="og:image" content="https://kalpandco.com/assets/kalp-logo-black.png">
+  <meta property="og:url" content="https://kalpandco.com/work.html">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Work Done — Kalp & Co | Portfolio & Case Studies">
+  <meta name="twitter:description" content="A curated look at the campaigns, photography, films, and brand work we've built for clients across India.">
+  <meta name="twitter:image" content="https://kalpandco.com/assets/kalp-logo-black.png">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap"
     rel="stylesheet">
@@ -25,7 +38,7 @@
       --gold: #c9a84c;
       --gold-light: #e8ca7a;
       --warm-gray: #7a776f;
-      --charcoal: #1c1b18;
+      --charcoal: #2a2720;
       --section-pad: 120px
     }
 
@@ -116,6 +129,13 @@
       text-transform: uppercase;
       color: var(--warm-gray);
       margin-top: 3px
+    }
+
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      display: block
     }
 
     .nav-cta {
@@ -991,6 +1011,13 @@
       color: var(--gold)
     }
 
+    .footer-logo img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      display: block
+    }
+
     .footer-links {
       display: flex;
       gap: 28px;
@@ -1129,8 +1156,7 @@
   <div class="cursor-ring" id="cursorRing"></div>
   <nav id="navbar">
     <div class="nav-top">
-      <a href="index.html" class="nav-logo">Kalp<span>&amp;</span>Co<span class="nav-logo-sub">Creative Agency &middot;
-          Bangalore</span></a>
+      <a href="index.html" class="nav-logo"><img src="assets/kalp-logo-black.png" alt="Kalp & Co Logo"></a>
       <a href="contact.html" class="nav-cta">Start a Project</a>
       <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -1165,7 +1191,7 @@
             <li><a href="facility.html#suites"><span class="dd-icon">&#9672;</span> Photography Suite</a></li>
             <li><a href="facility.html#video-suite"><span class="dd-icon">&#9672;</span> Video Production</a></li>
             <li><a href="facility.html#post-suite"><span class="dd-icon">&#9672;</span> Post Production Suite</a></li>
-            <li><a href="facility.html#location"><span class="dd-icon">&#9672;</span> Lavelle Road, Bangalore</a></li>
+            <li><a href="facility.html#location"><span class="dd-icon">&#9672;</span> Vittal Mallya Rd, Bengaluru</a></li>
           </ul>
         </li>
         <li class="nav-divider"></li>
@@ -1196,8 +1222,8 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="mobile-menu-info">
-      <p>hello@kalpandco.com</p>
-      <p style="margin-top:5px">Lavelle Road, Bangalore</p>
+      <p>kalpandco9@gmail.com</p>
+      <p style="margin-top:5px">Vittal Mallya Rd, Bengaluru</p>
     </div>
   </div>
 
@@ -1399,7 +1425,7 @@
       </div>
       <div class="stat-box">
         <div class="stat-num">1</div>
-        <div class="stat-label">Premium Studio &middot;<br>Lavelle Road, Bangalore</div>
+        <div class="stat-label">Premium Studio &middot;<br>Vittal Mallya Rd, Bengaluru</div>
       </div>
     </div>
   </section>
@@ -1414,14 +1440,14 @@
   </section>
 
   <footer>
-    <div class="footer-logo">Kalp<span>&amp;</span>Co</div>
+    <div class="footer-logo"><img src="assets/kalp-logo-black.png" alt="Kalp & Co Logo"></div>
     <ul class="footer-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="facility.html">Facility</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <p class="footer-copy">&copy; 2025 Kalp &amp; Co. Lavelle Road, Bangalore.</p>
+    <p class="footer-copy">&copy; 2025 Kalp &amp; Co. Vittal Mallya Rd, Bengaluru.</p>
   </footer>
   <script>
     var cursor = document.getElementById('cursor'), ring = document.getElementById('cursorRing'), mx = 0, my = 0, rx = 0, ry = 0;

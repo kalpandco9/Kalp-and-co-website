@@ -4,9 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/kalp-logo-black.png">
   <title>Kalp &amp; Co — Where Ideas Take Form | Creative Agency, Bangalore</title>
   <meta name="description"
-    content="Kalp & Co is Bangalore's premier integrated creative agency. Social media, photography, videography, and more — all under one roof on Lavelle Road.">
+    content="Kalp & Co is Bangalore's premier integrated creative agency. Social media, photography, videography, and more — all under one roof on Vittal Mallya Rd.">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kalp & Co">
+  <meta property="og:title" content="Kalp & Co — Where Ideas Take Form">
+  <meta property="og:description" content="Bangalore's premier integrated creative agency. Social media, photography, videography, and more — all under one roof on Vittal Mallya Rd.">
+  <meta property="og:image" content="https://kalpandco.com/assets/kalp-logo-black.png">
+  <meta property="og:url" content="https://kalpandco.com/">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Kalp & Co — Where Ideas Take Form">
+  <meta name="twitter:description" content="Bangalore's premier integrated creative agency. Social media, photography, videography, and more.">
+  <meta name="twitter:image" content="https://kalpandco.com/assets/kalp-logo-black.png">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap"
     rel="stylesheet">
@@ -25,7 +38,7 @@
       --gold: #c9a84c;
       --gold-light: #e8ca7a;
       --warm-gray: #7a776f;
-      --charcoal: #1c1b18;
+      --charcoal: #2a2720;
       --section-pad: 120px
     }
 
@@ -116,6 +129,13 @@
       text-transform: uppercase;
       color: var(--warm-gray);
       margin-top: 3px
+    }
+
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      display: block
     }
 
     .nav-cta {
@@ -792,16 +812,25 @@
     }
 
     #brands {
-      background: rgba(201, 168, 76, .02);
-      border-top: 1px solid rgba(201, 168, 76, .15);
+      background: var(--cream);
+      border-top: 1px solid rgba(201, 168, 76, .3);
       text-align: center
+    }
+
+    #brands .section-label {
+      color: var(--gold)
+    }
+
+    #brands .section-label::before {
+      background: var(--gold)
     }
 
     .brands-intro {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(28px, 3vw, 40px);
       font-weight: 300;
-      margin-bottom: 14px
+      margin-bottom: 14px;
+      color: var(--ink)
     }
 
     .brands-intro em {
@@ -819,13 +848,13 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 1px;
-      background: rgba(201, 168, 76, .1);
+      background: rgba(201, 168, 76, .25);
       max-width: 960px;
       margin: 0 auto
     }
 
     .brand-cell {
-      background: var(--ink);
+      background: var(--cream);
       padding: 38px 16px;
       display: flex;
       align-items: center;
@@ -833,20 +862,20 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 17px;
       font-weight: 300;
-      color: rgba(245, 240, 232, .25);
+      color: rgba(14, 13, 11, .35);
       letter-spacing: .08em;
       transition: color .3s, background .3s;
       cursor: default
     }
 
     .brand-cell:hover {
-      color: var(--cream);
-      background: rgba(201, 168, 76, .06)
+      color: var(--ink);
+      background: rgba(201, 168, 76, .1)
     }
 
     .brands-note {
       font-size: 11px;
-      color: rgba(122, 119, 111, .5);
+      color: rgba(14, 13, 11, .35);
       margin-top: 32px;
       letter-spacing: .1em
     }
@@ -1093,6 +1122,13 @@
       color: var(--gold)
     }
 
+    .footer-logo img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      display: block
+    }
+
     .footer-links {
       display: flex;
       gap: 28px;
@@ -1232,8 +1268,7 @@
   <div class="cursor-ring" id="cursorRing"></div>
   <nav id="navbar">
     <div class="nav-top">
-      <a href="index.html" class="nav-logo">Kalp<span>&amp;</span>Co<span class="nav-logo-sub">Creative Agency &middot;
-          Bangalore</span></a>
+      <a href="index.html" class="nav-logo"><img src="assets/kalp-logo-black.png" alt="Kalp & Co Logo"></a>
       <a href="contact.html" class="nav-cta">Start a Project</a>
       <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -1268,7 +1303,7 @@
             <li><a href="facility.html#suites"><span class="dd-icon">&#9672;</span> Photography Suite</a></li>
             <li><a href="facility.html#video-suite"><span class="dd-icon">&#9672;</span> Video Production</a></li>
             <li><a href="facility.html#post-suite"><span class="dd-icon">&#9672;</span> Post Production Suite</a></li>
-            <li><a href="facility.html#location"><span class="dd-icon">&#9672;</span> Lavelle Road, Bangalore</a></li>
+            <li><a href="facility.html#location"><span class="dd-icon">&#9672;</span> Vittal Mallya Rd, Bengaluru</a></li>
           </ul>
         </li>
         <li class="nav-divider"></li>
@@ -1300,8 +1335,8 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="mobile-menu-info">
-      <p>hello@kalpandco.com</p>
-      <p style="margin-top:5px">Lavelle Road, Bangalore</p>
+      <p>kalpandco9@gmail.com</p>
+      <p style="margin-top:5px">Vittal Mallya Rd, Bengaluru</p>
     </div>
   </div>
   <section id="hero">
@@ -1313,7 +1348,7 @@
       <p class="hero-sub">We don't just market brands &mdash; we build the visual language they speak, the stories
         audiences remember, and the culture they choose to belong to.</p>
       <div>
-        <p class="hero-location">Lavelle Road, Bangalore</p>
+        <p class="hero-location">Vittal Mallya Rd, Bengaluru</p>
         <div class="hero-scroll">
           <div class="scroll-line"></div>Scroll to explore
         </div>
@@ -1350,7 +1385,7 @@
       <p class="about-body">Kalp &amp; Co was born from a single conviction: that great marketing isn't just strategy
         &mdash; it's craft. Founded by a team of strategists, storytellers, and image-makers, we operate at the
         intersection of culture and commerce.</p>
-      <p class="about-body">From Lavelle Road, Bangalore, we serve brands across industries who demand more than generic
+      <p class="about-body">From Vittal Mallya Rd, Bengaluru, we serve brands across industries who demand more than generic
         output &mdash; brands that want to mean something.</p>
       <p class="about-body">No outsourcing. No handoffs. No dilution.</p>
     </div>
@@ -1369,7 +1404,7 @@
       </div>
       <div class="about-card">
         <div class="card-stat">1</div>
-        <div class="card-label">Premium Studio &middot; Lavelle Road, Bangalore</div>
+        <div class="card-label">Premium Studio &middot; Vittal Mallya Rd, Bengaluru</div>
       </div>
     </div>
   </section>
@@ -1458,7 +1493,8 @@
         <div class="scc-num">01 — Digital &amp; Strategy</div>
         <div class="scc-icon">&#9672;</div>
         <h3>Your brand, exactly where it matters most.</h3>
-        <p>We don't just build presence — we engineer visibility. Every move is intentional, every platform optimized to turn attention into action.</p>
+        <p>We don't just build presence — we engineer visibility. Every move is intentional, every platform optimized to
+          turn attention into action.</p>
         <ul>
           <li>Strategic social media planning</li>
           <li>Performance marketing &amp; paid ads</li>
@@ -1471,7 +1507,8 @@
         <div class="scc-num">02 — Photo &amp; Film</div>
         <div class="scc-icon">&#9672;</div>
         <h3>Visuals that speak before your brand does.</h3>
-        <p>From concept to final cut, we craft cinematic stories that capture attention, build desire, and elevate perception.</p>
+        <p>From concept to final cut, we craft cinematic stories that capture attention, build desire, and elevate
+          perception.</p>
         <ul>
           <li>Product &amp; lifestyle photography</li>
           <li>Brand films &amp; commercial ads (TVC-grade)</li>
@@ -1484,7 +1521,8 @@
         <div class="scc-num">03 — Design &amp; Offline</div>
         <div class="scc-icon">&#9672;</div>
         <h3>Presence that commands attention everywhere.</h3>
-        <p>We design identities that are not just seen, but remembered — across screens, streets, and every physical touchpoint.</p>
+        <p>We design identities that are not just seen, but remembered — across screens, streets, and every physical
+          touchpoint.</p>
         <ul>
           <li>Brand identity &amp; visual systems</li>
           <li>Packaging &amp; print design</li>
@@ -1529,14 +1567,14 @@
     <a href="contact.html" class="cta-strip-btn">Start a Project</a>
   </section>
   <footer>
-    <div class="footer-logo">Kalp<span>&amp;</span>Co</div>
+    <div class="footer-logo"><img src="assets/kalp-logo-black.png" alt="Kalp & Co Logo"></div>
     <ul class="footer-links">
       <li><a href="services.html">Services</a></li>
       <li><a href="facility.html">Facility</a></li>
       <li><a href="work.html">Work Done</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <p class="footer-copy">&copy; 2025 Kalp &amp; Co. Lavelle Road, Bangalore.</p>
+    <p class="footer-copy">&copy; 2025 Kalp &amp; Co. Vittal Mallya Rd, Bengaluru.</p>
   </footer>
   <script>
     var cursor = document.getElementById('cursor'), ring = document.getElementById('cursorRing'), mx = 0, my = 0, rx = 0, ry = 0;
