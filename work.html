@@ -12,13 +12,15 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kalp & Co">
   <meta property="og:title" content="Work Done — Kalp & Co | Portfolio & Case Studies">
-  <meta property="og:description" content="Photography, social media campaigns, brand films, branding projects, and outdoor advertising work for brands across India.">
+  <meta property="og:description"
+    content="Photography, social media campaigns, brand films, branding projects, and outdoor advertising work for brands across India.">
   <meta property="og:image" content="https://kalpandco.com/assets/kalp-logo-black.png">
   <meta property="og:url" content="https://kalpandco.com/work.html">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Work Done — Kalp & Co | Portfolio & Case Studies">
-  <meta name="twitter:description" content="A curated look at the campaigns, photography, films, and brand work we've built for clients across India.">
+  <meta name="twitter:description"
+    content="A curated look at the campaigns, photography, films, and brand work we've built for clients across India.">
   <meta name="twitter:image" content="https://kalpandco.com/assets/kalp-logo-black.png">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap"
@@ -404,7 +406,9 @@
     .page-hero-bg {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(201, 168, 76, .07) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 10% 80%, rgba(201, 168, 76, .04) 0%, transparent 60%)
+      background: linear-gradient(rgba(14, 13, 11, 0.5), rgba(14, 13, 11, 0.8)), url('assets/work-done-hero-img.png');
+      background-size: cover;
+      background-position: center;
     }
 
     .page-hero-grid {
@@ -621,6 +625,86 @@
     }
 
     .project-card {
+      position: relative;
+      height: 480px;
+      /* Consistent with your premium feel */
+      background: var(--ink);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      border: 1px solid rgba(201, 168, 76, 0.1);
+    }
+
+    /* Background Image Layer */
+    .pc-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0.4;
+      /* Muted for text readability */
+      filter: grayscale(0.2);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+      z-index: 0;
+    }
+
+    /* Gradient Overlay for Legibility */
+    .project-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14, 13, 11, 0.95) 0%, rgba(14, 13, 11, 0.2) 70%);
+      z-index: 1;
+    }
+
+    /* Ensuring content stays on top */
+    .pc-bg-num,
+    .pc-tag,
+    .pc-category,
+    .pc-name,
+    .pc-desc {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Styling for the card text */
+    .pc-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .pc-category {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--warm-gray);
+      margin-bottom: 4px;
+    }
+
+    .pc-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 90%;
+    }
+
+    /* Hover State */
+    .project-card:hover .pc-img {
+      opacity: 0.7;
+      transform: scale(1.05);
+      filter: grayscale(0);
+    }
+
+    .project-card:hover {
+      border-color: var(--gold);
+    }
+
+    .project-card {
       background: var(--ink);
       min-height: 310px;
       display: flex;
@@ -771,7 +855,9 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
-      transition: border-color .3s
+      transition: border-color .3s;
+      background-size: cover;
+      background-position: center;
     }
 
     .case-visual:hover {
@@ -1191,7 +1277,8 @@
             <li><a href="facility.html#suites"><span class="dd-icon">&#9672;</span> Photography Suite</a></li>
             <li><a href="facility.html#video-suite"><span class="dd-icon">&#9672;</span> Video Production</a></li>
             <li><a href="facility.html#post-suite"><span class="dd-icon">&#9672;</span> Post Production Suite</a></li>
-            <li><a href="facility.html#location"><span class="dd-icon">&#9672;</span> Vittal Mallya Rd, Bengaluru</a></li>
+            <li><a href="facility.html#location"><span class="dd-icon">&#9672;</span> Vittal Mallya Rd, Bengaluru</a>
+            </li>
           </ul>
         </li>
         <li class="nav-divider"></li>
@@ -1265,69 +1352,87 @@
   <section id="portfolio">
     <div class="portfolio-header reveal">
       <h2>Selected <em>work.</em></h2>
-      <div class="filter-tabs">
-        <button class="filter-tab active" data-filter="all">All</button>
-        <button class="filter-tab" data-filter="social">Social</button>
-        <button class="filter-tab" data-filter="photo">Photo</button>
-        <button class="filter-tab" data-filter="film">Film</button>
-        <button class="filter-tab" data-filter="brand">Branding</button>
-        <button class="filter-tab" data-filter="outdoor">Outdoor</button>
-      </div>
     </div>
     <div class="portfolio-grid reveal">
-      <div class="project-card" data-cat="social">
-        <div class="pc-bg-num">01</div><span class="pc-tag">Social</span>
-        <div class="pc-category">Social Media Campaign</div>
-        <div class="pc-name">Brand 01</div>
-        <div class="pc-desc">180-day content strategy, 3x engagement growth</div>
-      </div>
       <div class="project-card" data-cat="photo">
-        <div class="pc-bg-num">02</div><span class="pc-tag">Photo</span>
-        <div class="pc-category">Product Photography</div>
-        <div class="pc-name">Brand 02</div>
-        <div class="pc-desc">Full product suite — 200+ studio shots</div>
+        <img src="assets/krispy-kreme-cover.png" alt="Krispy Kreme" class="pc-img">
+        <div class="pc-bg-num">01</div>
+        <span class="pc-tag">Photo</span>
+        <div class="pc-category">Visual Storytelling & Food Styling</div>
+        <div class="pc-name">Krispy Kreme</div>
+        <div class="pc-desc">Engaging, scroll-stopping imagery for digital indulgence.</div>
       </div>
+
+      <div class="project-card" data-cat="brand">
+        <img src="assets/selected-work/pankaj-soni-face.png" alt="Pankaj Soni" class="pc-img">
+        <div class="pc-bg-num">02</div>
+        <span class="pc-tag">Branding</span>
+        <div class="pc-category">Personal Brand Strategy & Identity</div>
+        <div class="pc-name">Pankaj Soni</div>
+        <div class="pc-desc">0 to 103K community growth & 4x inquiry increase.</div>
+      </div>
+
       <div class="project-card" data-cat="film">
-        <div class="pc-bg-num">03</div><span class="pc-tag">Film</span>
+        <img src="assets/logos/image0.jpeg" alt="Brand 03" class="pc-img">
+        <div class="pc-bg-num">03</div>
+        <span class="pc-tag">Film</span>
         <div class="pc-category">Brand Film</div>
-        <div class="pc-name">Brand 03</div>
-        <div class="pc-desc">90-second hero film, broadcast &amp; digital</div>
+        <div class="pc-name">Hangover</div>
+        <div class="pc-desc">90-second hero film, broadcast & digital.</div>
       </div>
+
       <div class="project-card" data-cat="brand">
-        <div class="pc-bg-num">04</div><span class="pc-tag">Branding</span>
+        <img src="assets/logos/image1.jpeg" alt="Brand 04" class="pc-img">
+        <div class="pc-bg-num">04</div>
+        <span class="pc-tag">Branding</span>
         <div class="pc-category">Brand Identity</div>
-        <div class="pc-name">Brand 04</div>
-        <div class="pc-desc">Logo, guidelines, packaging, collateral</div>
+        <div class="pc-name">Ezone Lagoon Resort</div>
+        <div class="pc-desc">Logo, guidelines, packaging, and collateral.</div>
       </div>
+
       <div class="project-card" data-cat="outdoor">
-        <div class="pc-bg-num">05</div><span class="pc-tag">Outdoor</span>
+        <img src="assets/logos/image2.png" alt="Brand 05" class="pc-img">
+        <div class="pc-bg-num">05</div>
+        <span class="pc-tag">Outdoor</span>
         <div class="pc-category">OOH Campaign</div>
-        <div class="pc-name">Brand 05</div>
-        <div class="pc-desc">12 hoardings across Bangalore &amp; Pune</div>
+        <div class="pc-name">Kneetoes</div>
+        <div class="pc-desc">12 hoardings across Bangalore & Pune.</div>
       </div>
+
       <div class="project-card" data-cat="social">
-        <div class="pc-bg-num">06</div><span class="pc-tag">Social</span>
+        <img src="assets/logos/image3.png" alt="Brand 06" class="pc-img">
+        <div class="pc-bg-num">06</div>
+        <span class="pc-tag">Social</span>
         <div class="pc-category">Influencer Campaign</div>
-        <div class="pc-name">Brand 06</div>
-        <div class="pc-desc">30 creators, 4M+ combined reach</div>
+        <div class="pc-name">Smoke House Deli</div>
+        <div class="pc-desc">30 creators, 4M+ combined reach.</div>
       </div>
+
       <div class="project-card" data-cat="photo">
-        <div class="pc-bg-num">07</div><span class="pc-tag">Photo</span>
+        <img src="assets/logos/image4.jpeg" alt="Brand 07" class="pc-img">
+        <div class="pc-bg-num">07</div>
+        <span class="pc-tag">Photo</span>
         <div class="pc-category">Lifestyle Photography</div>
-        <div class="pc-name">Brand 07</div>
-        <div class="pc-desc">Editorial campaign — F&amp;B brand relaunch</div>
+        <div class="pc-name">The Pump House</div>
+        <div class="pc-desc">Editorial campaign — F&B brand relaunch.</div>
       </div>
+
       <div class="project-card" data-cat="film">
-        <div class="pc-bg-num">08</div><span class="pc-tag">Film</span>
+        <img src="assets/logos/image5.jpeg" alt="Brand 08" class="pc-img">
+        <div class="pc-bg-num">08</div>
+        <span class="pc-tag">Film</span>
         <div class="pc-category">Ad Film Series</div>
-        <div class="pc-name">Brand 08</div>
-        <div class="pc-desc">3-part ad film series for digital &amp; TV</div>
+        <div class="pc-name">Supple Fitness</div>
+        <div class="pc-desc">3-part ad film series for digital & TV.</div>
       </div>
+
       <div class="project-card" data-cat="brand">
-        <div class="pc-bg-num">09</div><span class="pc-tag">Branding</span>
+        <img src="assets/logos/image6.jpeg" alt="Brand 09" class="pc-img">
+        <div class="pc-bg-num">09</div>
+        <span class="pc-tag">Branding</span>
         <div class="pc-category">Packaging Design</div>
-        <div class="pc-name">Brand 09</div>
-        <div class="pc-desc">Full packaging redesign — SKU range</div>
+        <div class="pc-name">Marks & Spencer</div>
+        <div class="pc-desc">Full packaging redesign — SKU range.</div>
       </div>
     </div>
   </section>
@@ -1340,9 +1445,10 @@
       <p>Selected case studies that illustrate our approach — from brief to measurable results.</p>
     </div>
     <div class="case-study reveal">
-      <div class="case-visual">
+      <div class="case-visual"
+        style="background-image: linear-gradient(rgba(14, 13, 11, 0.4), rgba(14, 13, 11, 0.4)), url('assets/krispy-kreme-cover.png');">
         <div class="cv-watermark">01</div>
-        <div class="cv-label">Brand 01 — Social Media Campaign</div>
+        <div class="cv-label"></div>
       </div>
       <div class="case-content">
         <span class="case-tag">Social Media</span>
@@ -1371,9 +1477,10 @@
       </div>
     </div>
     <div class="case-study reverse reveal">
-      <div class="case-visual">
+      <div class="case-visual"
+        style="background-image: linear-gradient(rgba(14, 13, 11, 0.4), rgba(14, 13, 11, 0.4)), url('assets/pankaj-soni-img.jpeg');">
         <div class="cv-watermark">02</div>
-        <div class="cv-label">Brand 02 — Brand Film</div>
+        <div class="cv-label"></div>
       </div>
       <div class="case-content">
         <span class="case-tag">Brand Film</span>
@@ -1404,7 +1511,7 @@
 
   <!-- STATS BAND -->
   <section id="stats">
-    <div class="stats-bg-word">NUMBERS</div>
+    <div class="stats-bg-word"></div>
     <div class="stats-header reveal">
       <div class="section-label" style="justify-content:center">By The Numbers</div>
       <h2>Results that <em>speak louder</em> than claims.</h2>

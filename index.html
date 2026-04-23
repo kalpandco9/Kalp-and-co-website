@@ -12,13 +12,15 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kalp & Co">
   <meta property="og:title" content="Kalp & Co — Where Ideas Take Form">
-  <meta property="og:description" content="Bangalore's premier integrated creative agency. Social media, photography, videography, and more — all under one roof on Vittal Mallya Rd.">
+  <meta property="og:description"
+    content="Bangalore's premier integrated creative agency. Social media, photography, videography, and more — all under one roof on Vittal Mallya Rd.">
   <meta property="og:image" content="https://kalpandco.com/assets/kalp-logo-black.png">
   <meta property="og:url" content="https://kalpandco.com/">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Kalp & Co — Where Ideas Take Form">
-  <meta name="twitter:description" content="Bangalore's premier integrated creative agency. Social media, photography, videography, and more.">
+  <meta name="twitter:description"
+    content="Bangalore's premier integrated creative agency. Social media, photography, videography, and more.">
   <meta name="twitter:image" content="https://kalpandco.com/assets/kalp-logo-black.png">
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap"
@@ -579,6 +581,89 @@
       border-color: var(--gold-light)
     }
 
+    #stats {
+      position: relative;
+      overflow: hidden
+    }
+
+    .stats-header {
+      text-align: center;
+      margin-bottom: 72px
+    }
+
+    .stats-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 4.5vw, 54px);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 16px
+    }
+
+    .stats-header h2 em {
+      font-style: italic;
+      color: var(--gold)
+    }
+
+    .stats-header p {
+      font-size: 15px;
+      color: var(--warm-gray);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.8
+    }
+
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(201, 168, 76, .1);
+      position: relative
+    }
+
+    .stat-box {
+      background: var(--ink);
+      /* Or var(--charcoal) depending on your design */
+      padding: 60px 40px;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+
+    .stat-box:hover {
+      background: rgba(201, 168, 76, 0.05);
+    }
+
+    /* 2. Style the numbers inside the boxes */
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    /* 3. Style the labels */
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      line-height: 1.6;
+    }
+
+    /* 4. Fix the reveal transition (if not already handled) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     #about {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -880,6 +965,38 @@
       letter-spacing: .1em
     }
 
+    .brand-cell {
+      background: var(--cream);
+      padding: 40px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 120px;
+      /* Maintains consistent row height */
+      overflow: hidden;
+    }
+
+    /* Image behavior */
+    .brand-cell img {
+      width: auto;
+      height: auto;
+      max-width: 80%;
+      /* Keeps logo from touching the edges */
+      max-height: 50px;
+      /* Limits height for visual balance */
+      object-fit: contain;
+
+      /* High-end aesthetic: Grayscale by default */
+      filter: grayscale(1) opacity(0.6);
+      transition: all 0.4s ease-in-out;
+    }
+
+    /* Hover effect */
+    .brand-cell:hover img {
+      filter: grayscale(0) opacity(1);
+      transform: scale(1.08);
+    }
+
     #services-teaser {
       border-top: 1px solid rgba(201, 168, 76, .15)
     }
@@ -1024,6 +1141,75 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(135deg, rgba(201, 168, 76, .04) 0%, transparent 60%)
+    }
+
+    .work-card {
+      position: relative;
+      background: var(--ink);
+      height: 450px;
+      /* Increased height for better visual impact */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 40px;
+      overflow: hidden;
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      transition: border-color 0.4s ease;
+    }
+
+    /* The Background Image */
+    .wc-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+      /* Darker by default to keep text legible */
+      filter: grayscale(0.5);
+      /* Optional: muted colors for a sophisticated look */
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+      z-index: 0;
+    }
+
+    /* Gradient Overlay to ensure text stays sharp */
+    .work-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14, 13, 11, 0.9) 0%, rgba(14, 13, 11, 0) 60%);
+      z-index: 1;
+    }
+
+    /* Ensure content sits above the image and gradient */
+    .wc-num,
+    .wc-info {
+      position: relative;
+      z-index: 2;
+    }
+
+    .wc-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 100px;
+      color: rgba(201, 168, 76, 0.1);
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      line-height: 1;
+    }
+
+    /* Hover Effects */
+    .work-card:hover {
+      border-color: var(--gold);
+    }
+
+    .work-card:hover .wc-img {
+      opacity: 0.6;
+      /* Brightens slightly on hover */
+      transform: scale(1.1);
+      /* Subtle zoom */
+      filter: grayscale(0);
+      /* Brings back full color */
     }
 
     .wc-num {
@@ -1203,6 +1389,7 @@
         display: flex
       }
 
+
       .nav-cta {
         display: none
       }
@@ -1241,6 +1428,8 @@
         align-items: flex-start;
         gap: 24px
       }
+
+
 
       #cta-strip {
         flex-direction: column;
@@ -1303,7 +1492,8 @@
             <li><a href="facility.html#suites"><span class="dd-icon">&#9672;</span> Photography Suite</a></li>
             <li><a href="facility.html#video-suite"><span class="dd-icon">&#9672;</span> Video Production</a></li>
             <li><a href="facility.html#post-suite"><span class="dd-icon">&#9672;</span> Post Production Suite</a></li>
-            <li><a href="facility.html#location"><span class="dd-icon">&#9672;</span> Vittal Mallya Rd, Bengaluru</a></li>
+            <li><a href="facility.html#location"><span class="dd-icon">&#9672;</span> Vittal Mallya Rd, Bengaluru</a>
+            </li>
           </ul>
         </li>
         <li class="nav-divider"></li>
@@ -1377,34 +1567,29 @@
       <span class="marquee-item">In-House Studio</span><span class="marquee-item marquee-dot">+</span>
     </div>
   </div>
-  <section id="about">
-    <div class="reveal">
-      <div class="about-number">01</div>
-      <div class="section-label">About Kalp &amp; Co</div>
-      <h2 class="about-headline">More than an agency.<br><em>A creative force.</em></h2>
-      <p class="about-body">Kalp &amp; Co was born from a single conviction: that great marketing isn't just strategy
-        &mdash; it's craft. Founded by a team of strategists, storytellers, and image-makers, we operate at the
-        intersection of culture and commerce.</p>
-      <p class="about-body">From Vittal Mallya Rd, Bengaluru, we serve brands across industries who demand more than generic
-        output &mdash; brands that want to mean something.</p>
-      <p class="about-body">No outsourcing. No handoffs. No dilution.</p>
+  <section id="stats">
+    <div class="stats-bg-word"></div>
+    <div class="stats-header reveal">
+      <div class="section-label" style="justify-content:center">By The Numbers</div>
+      <h2>More than a Creative Agency. <em>A Creative Force</em></h2>
+      <p>A track record built on creative excellence and measurable brand impact.</p>
     </div>
-    <div class="reveal">
-      <div class="about-card">
-        <div class="card-stat">50+</div>
-        <div class="card-label">Brands Elevated Across India</div>
+    <div class="stats-grid reveal">
+      <div class="stat-box">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Brands Elevated<br>Across India</div>
       </div>
-      <div class="about-card">
-        <div class="card-stat">8+</div>
-        <div class="card-label">Years of Integrated Creative Work</div>
+      <div class="stat-box">
+        <div class="stat-num">360&deg;</div>
+        <div class="stat-label">End-to-End In-House<br>Capability</div>
       </div>
-      <div class="about-card">
-        <div class="card-stat">360&deg;</div>
-        <div class="card-label">End-to-End In-House Capability</div>
+      <div class="stat-box">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Years of Integrated<br>Creative Work</div>
       </div>
-      <div class="about-card">
-        <div class="card-stat">1</div>
-        <div class="card-label">Premium Studio &middot; Vittal Mallya Rd, Bengaluru</div>
+      <div class="stat-box">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Premium Studio &middot;<br>Vittal Mallya Rd, Bengaluru</div>
       </div>
     </div>
   </section>
@@ -1469,18 +1654,28 @@
     <p class="brands-sub reveal">A curated portfolio of partners across F&amp;B, real estate, fashion, wellness,
       hospitality, and lifestyle.</p>
     <div class="brands-grid reveal">
-      <div class="brand-cell">Brand 01</div>
-      <div class="brand-cell">Brand 02</div>
-      <div class="brand-cell">Brand 03</div>
-      <div class="brand-cell">Brand 04</div>
-      <div class="brand-cell">Brand 05</div>
-      <div class="brand-cell">Brand 06</div>
-      <div class="brand-cell">Brand 07</div>
-      <div class="brand-cell">Brand 08</div>
-      <div class="brand-cell">Brand 09</div>
-      <div class="brand-cell">Brand 10</div>
+      <div class="brand-cell"><img src="assets/logos/image0.jpeg" alt="Brand Logo 0"></div>
+      <div class="brand-cell"><img src="assets/logos/image1.jpeg" alt="Brand Logo 1"></div>
+      <div class="brand-cell"><img src="assets/logos/image2.png" alt="Brand Logo 2"></div>
+      <div class="brand-cell"><img src="assets/logos/image3.png" alt="Brand Logo 3"></div>
+      <div class="brand-cell"><img src="assets/logos/image4.jpeg" alt="Brand Logo 4"></div>
+      <div class="brand-cell"><img src="assets/logos/image5.jpeg" alt="Brand Logo 5"></div>
+      <div class="brand-cell"><img src="assets/logos/image6.jpeg" alt="Brand Logo 6"></div>
+      <div class="brand-cell"><img src="assets/logos/image7.png" alt="Brand Logo 7"></div>
+      <div class="brand-cell"><img src="assets/logos/image8.png" alt="Brand Logo 8"></div>
+      <div class="brand-cell"><img src="assets/logos/image9.png" alt="Brand Logo 9"></div>
+      <div class="brand-cell"><img src="assets/logos/image10.png" alt="Brand Logo 10"></div>
+      <div class="brand-cell"><img src="assets/logos/image11.jpeg" alt="Brand Logo 11"></div>
+      <div class="brand-cell"><img src="assets/logos/image12.png" alt="Brand Logo 12"></div>
+      <div class="brand-cell"><img src="assets/logos/image13.png" alt="Brand Logo 13"></div>
+      <div class="brand-cell"><img src="assets/logos/image14.png" alt="Brand Logo 14"></div>
+      <div class="brand-cell"><img src="assets/logos/image15.jpeg" alt="Brand Logo 15"></div>
+      <div class="brand-cell"><img src="assets/logos/image16.png" alt="Brand Logo 16"></div>
+      <div class="brand-cell"><img src="assets/logos/image17.jpeg" alt="Brand Logo 17"></div>
+      <div class="brand-cell"><img src="assets/logos/image18.jpeg" alt="Brand Logo 18"></div>
+      <div class="brand-cell"><img src="assets/logos/image19.png" alt="Brand Logo 19"></div>
     </div>
-    <p class="brands-note reveal">Replace with client logos</p>
+    <p class="brands-note reveal">Trusted by brands that dare to stand out.</p>
   </section>
   <section id="services-teaser">
     <div class="section-label reveal">What We Do</div>
@@ -1540,23 +1735,32 @@
     </div>
     <div class="work-preview-grid reveal">
       <div class="work-card">
+        <img src="assets/krispy-kreme-cover.png" alt="Work 01" class="wc-img">
         <div class="wc-num">01</div>
         <div class="wc-info">
-          <h3>Brand 01</h3><span>Social Media Campaign</span>
+          <h3>Dunkin Donuts</h3>
+          <span>Visual Storytelling & Food Styling</span>
         </div>
       </div>
+
       <div class="work-card">
+        <img src="assets/selected-work/pankaj-soni-face.png" alt="Work 02" class="wc-img">
         <div class="wc-num">02</div>
         <div class="wc-info">
-          <h3>Brand 02</h3><span>Product Photography</span>
+          <h3>Pankaj Soni</h3>
+          <span>Digital Narrative & Celebrity Engagement</span>
         </div>
       </div>
+
       <div class="work-card">
+        <img src="work3.jpg" alt="Work 03" class="wc-img">
         <div class="wc-num">03</div>
         <div class="wc-info">
-          <h3>Brand 03</h3><span>Brand Film &amp; Post</span>
+          <h3>Brand 03</h3>
+          <span>Brand Film &amp; Post</span>
         </div>
       </div>
+    </div>
     </div>
   </section>
   <section id="cta-strip">

@@ -12,7 +12,8 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kalp & Co">
   <meta property="og:title" content="Facility — Kalp & Co | In-House Studio, Bangalore">
-  <meta property="og:description" content="Tour our purpose-built creative facility — cyclorama photography suite, 4K video production, and full post production on Vittal Mallya Rd, Bengaluru.">
+  <meta property="og:description"
+    content="Tour our purpose-built creative facility — cyclorama photography suite, 4K video production, and full post production on Vittal Mallya Rd, Bengaluru.">
   <meta property="og:image" content="https://kalpandco.com/assets/kalp-logo-black.png">
   <meta property="og:url" content="https://kalpandco.com/facility.html">
   <!-- Twitter Card -->
@@ -405,8 +406,35 @@
     .page-hero-bg {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(201, 168, 76, .07) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 10% 80%, rgba(201, 168, 76, .04) 0%, transparent 60%)
+      /* Replace 'hero-studio.jpg' with your actual image file */
+      background-image: url('assets/facility/facility-hero-img.jpeg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.4;
+      /* Muted so it doesn't fight the text */
+      filter: grayscale(0.3);
+      z-index: 0;
     }
+
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+          rgba(14, 13, 11, 0.8) 0%,
+          rgba(14, 13, 11, 0.4) 50%,
+          var(--ink) 100%);
+      z-index: 1;
+    }
+
+    .page-eyebrow,
+    .page-headline,
+    .page-hero-bottom,
+    .page-hero-grid {
+      position: relative;
+      z-index: 2;
+    }
+
 
     .page-hero-grid {
       position: absolute;
@@ -476,24 +504,6 @@
       padding: var(--section-pad) 60px
     }
 
-    .section-label {
-      font-size: 11px;
-      letter-spacing: .35em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 56px;
-      display: flex;
-      align-items: center;
-      gap: 14px
-    }
-
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 28px;
-      height: 1px;
-      background: var(--gold)
-    }
 
     .reveal {
       opacity: 0;
@@ -610,27 +620,28 @@
     .facility-visual {
       display: grid;
       grid-template-rows: 1fr 1fr;
-      gap: 18px
+      gap: 18px;
     }
 
     .facility-mock {
-      background: rgba(14, 13, 11, .5);
-      border: 1px solid rgba(201, 168, 76, .12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 14px;
-      color: rgba(245, 240, 232, .18);
-      letter-spacing: .1em;
-      min-height: 190px;
       position: relative;
+      background: var(--ink);
+      /* Solid base for the image overlay */
+      min-height: 240px;
+      /* Slightly taller for better photo impact */
       overflow: hidden;
-      transition: border-color .3s
+      border: 1px solid rgba(201, 168, 76, .12);
+      transition: border-color .4s ease;
     }
 
     .facility-mock:hover {
-      border-color: rgba(201, 168, 76, .3)
+      border-color: var(--gold);
+    }
+
+    .facility-mock:hover .facility-img {
+      opacity: 0.7;
+      transform: scale(1.05);
+      filter: grayscale(0);
     }
 
     .facility-mock::before {
@@ -640,10 +651,39 @@
       background: linear-gradient(135deg, rgba(201, 168, 76, .05) 0%, transparent 60%)
     }
 
+    .facility-mock::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14, 13, 11, 0.8) 0%, transparent 60%);
+      z-index: 1;
+    }
+
     .facility-mock-label {
-      position: relative;
-      text-align: center;
-      padding: 0 20px
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      z-index: 2;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      color: var(--cream);
+      letter-spacing: .1em;
+      padding-left: 12px;
+      border-left: 1px solid var(--gold);
+      line-height: 1.4;
+    }
+
+    .facility-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+      /* Muted by default */
+      filter: grayscale(0.4);
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+      z-index: 0;
     }
 
     /* SPECS */
@@ -847,91 +887,59 @@
       margin-top: 4px
     }
 
-    /* LOCATION */
-    #post-suite {
-      background: var(--charcoal);
-      border-top: 1px solid rgba(201, 168, 76, .15)
+    /* --- LOCATION SECTION --- */
+    #location {
+      text-align: center;
+      padding: 100px 20px;
+      border-top: 1px solid rgba(201, 168, 76, .15);
+      background: var(--ink);
     }
 
-    .location-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 72px;
-      align-items: center
+    .location-content {
+      max-width: 800px;
+      margin: 0 auto 56px;
+      /* Space between text and map */
     }
 
-    .location-text h2 {
+    #location h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(34px, 4vw, 50px);
+      font-size: clamp(34px, 4.5vw, 54px);
       font-weight: 300;
       line-height: 1.2;
-      margin-bottom: 22px
+      margin-bottom: 24px;
     }
 
-    .location-text h2 em {
+    #location h2 em {
       font-style: italic;
-      color: var(--gold)
+      color: var(--gold);
     }
 
-    .location-text p {
-      font-size: 15px;
+    .location-lead {
+      font-size: 18px;
+      color: var(--cream);
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Renamed to avoid conflict with the address bar */
+    .location-subtext {
+      font-size: 14px;
       color: var(--warm-gray);
       line-height: 1.8;
-      margin-bottom: 14px
+      max-width: 520px;
+      margin: 0 auto;
     }
 
-    .location-details {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      margin-top: 36px
-    }
-
-    .loc-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 20px 22px;
-      border: 1px solid rgba(201, 168, 76, .12);
-      transition: border-color .3s
-    }
-
-    .loc-item:hover {
-      border-color: rgba(201, 168, 76, .35)
-    }
-
-    .loc-icon {
-      color: var(--gold);
-      font-size: 16px;
-      flex-shrink: 0;
-      margin-top: 2px
-    }
-
-    .loc-info strong {
-      display: block;
-      font-size: 12px;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 4px;
-      font-weight: 500
-    }
-
-    .loc-info span {
-      font-size: 14px;
-      color: var(--cream)
-    }
-
-    #location {
-      border-top: 1px solid rgba(201, 168, 76, .15)
-    }
-
+    /* MAP STYLING */
     .map-placeholder {
       border: 1px solid rgba(201, 168, 76, .2);
       height: 440px;
+      width: 100%;
+      max-width: 1200px;
+      /* Optional: keeps map from getting too wide */
+      margin: 0 auto 56px;
       position: relative;
       overflow: hidden;
-      margin-bottom: 56px
     }
 
     .map-placeholder iframe {
@@ -939,48 +947,25 @@
       height: 100%;
       border: 0;
       display: block;
-      filter: grayscale(30%) contrast(1.05)
+      /* Premium Map Filter */
+      filter: grayscale(1) invert(0.9) contrast(1.2) opacity(0.6);
     }
 
-    .map-inner {
-      text-align: center;
-      position: relative
-    }
-
-    .map-inner .map-icon {
-      font-size: 48px;
-      color: var(--gold);
-      opacity: .4;
-      margin-bottom: 16px
-    }
-
-    .map-inner p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 300;
-      color: rgba(245, 240, 232, .4);
-      letter-spacing: .05em
-    }
-
-    .map-inner span {
-      display: block;
-      font-size: 11px;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--warm-gray);
-      margin-top: 8px
-    }
-
+    /* ADDRESS BAR (The 3-column info at bottom) */
     .map-address-bar {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: rgba(201, 168, 76, .1)
+      background: rgba(201, 168, 76, .1);
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .address-fact {
       background: var(--ink);
-      padding: 32px 36px
+      padding: 32px 36px;
+      text-align: left;
+      /* Keep individual facts left-aligned */
     }
 
     .af-label {
@@ -988,13 +973,21 @@
       letter-spacing: .25em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 8px
+      margin-bottom: 8px;
     }
 
     .af-value {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
-      font-weight: 300
+      font-weight: 300;
+      color: var(--cream);
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+      .map-address-bar {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* BOOK CTA */
@@ -1325,9 +1318,11 @@
       </div>
       <div class="facility-visual reveal">
         <div class="facility-mock">
+          <img src="assets/facility/facility-thestudio-1.jpeg" alt="Photography Studio" class="facility-img">
           <div class="facility-mock-label">Studio Photography &mdash; Cyclorama Wall &amp; Lighting Rigs</div>
         </div>
         <div class="facility-mock">
+          <img src="assets/facility/facility-thestudio-2.jpeg" alt="Video Suite" class="facility-img">
           <div class="facility-mock-label">Video Suite &mdash; 4K Production &amp; Colour Grading Station</div>
         </div>
       </div>
@@ -1429,7 +1424,7 @@
     </div>
   </section>
 
-  <!-- LOCATION -->
+  <!-- LOCATION 
   <section id="post-suite">
     <div class="location-grid">
       <div class="reveal">
@@ -1439,7 +1434,8 @@
         <p>Come for a studio tour, creative briefing, or client walkthrough — our doors are open Monday to Saturday.</p>
         <div class="location-details">
           <div class="loc-item"><span class="loc-icon">&#9679;</span>
-            <div class="loc-info"><strong>Studio Address</strong><span>No.33/1 PJD No.76-22-33/1, Fourth Floor, Vittal Mallya Rd, Bengaluru, Karnataka, Pin: 560001</span>
+            <div class="loc-info"><strong>Studio Address</strong><span>No.33/1 PJD No.76-22-33/1, Fourth Floor, Vittal
+                Mallya Rd, Bengaluru, Karnataka, Pin: 560001</span>
             </div>
           </div>
           <div class="loc-item"><span class="loc-icon">&#9681;</span>
@@ -1456,29 +1452,53 @@
       </div>
       <div class="reveal">
         <div
-          style="background:var(--charcoal);border:1px solid rgba(201,168,76,.1);padding:48px 36px;height:100%;min-height:400px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;overflow:hidden;">
+          style="background:var(--charcoal); border:1px solid rgba(201,168,76,.1); height:100%; min-height:400px; position:relative; overflow:hidden;">
+
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.975005822606!2d77.59513597593674!3d12.971647015535565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17152c74c60b%3A0xa5c3a615e8d77011!2sKalp%26Co!5e0!3m2!1sen!2sin!4v1713880000000!5m2!1sen!2sin"
+            width="100%" height="100%"
+            style="border:0; position:absolute; inset:0; filter: grayscale(1) invert(0.9) contrast(1.2); opacity: 0.6;"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+
           <div
-            style="font-family:'Bebas Neue',sans-serif;font-size:200px;color:rgba(201,168,76,.04);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;white-space:nowrap">
-            STUDIO</div>
-          <div style="font-size:44px;color:var(--gold);opacity:.5;margin-bottom:20px;position:relative">&#9679;</div>
-          <h3
-            style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;margin-bottom:12px;position:relative">
-            Kalp &amp; Co Studio</h3>
-          <p style="font-size:13px;color:var(--warm-gray);line-height:1.7;position:relative;max-width:260px">
-            No.33/1 PJD No.76-22-33/1, Fourth Floor,<br>Vittal Mallya Rd, Bengaluru,<br>Karnataka, India 560001</p>
-          <a href="contact.html"
-            style="margin-top:32px;display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:13px 28px;text-decoration:none;transition:background .2s;position:relative">Book
-            a Studio Tour <span>&#8594;</span></a>
+            style="position:relative; z-index:2; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:48px 36px; background: linear-gradient(to top, var(--charcoal) 0%, transparent 100%); pointer-events: none;">
+
+            <div
+              style="font-family:'Bebas Neue',sans-serif; font-size:200px; color:rgba(201,168,76,.04); position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; white-space:nowrap">
+              STUDIO</div>
+
+            <div style="font-size:44px; color:var(--gold); opacity:.8; margin-bottom:20px;">●</div>
+
+            <h3
+              style="font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:300; margin-bottom:12px; color:var(--cream);">
+
+              http://googleusercontent.com/map_location_reference/1
+              [Kalp&Co](http://googleusercontent.com/map_location_reference/0)</h3>
+
+            <p style="font-size:13px; color:var(--warm-gray); line-height:1.7; max-width:260px">
+              No.33/1 PJD No.76, Fourth Floor,<br>Vittal Mallya Rd, Bengaluru,<br>Karnataka 560001</p>
+
+            <a href="contact.html"
+              style="margin-top:32px; pointer-events: auto; display:inline-flex; align-items:center; gap:10px; font-size:11px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--ink); background:var(--gold); padding:13px 28px; text-decoration:none; transition:background .2s;">
+              Book a Studio Tour <span>→</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+    </div>
+  </section>-->
 
   <section id="location">
+    <div class="location-content reveal">
+      <h2>Right in the heart of <em>Bangalore.</em></h2>
+    </div>
     <div class="map-placeholder reveal" style="min-height:420px;padding:0">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9976271867796!2d77.5943!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae168c9b4c9d45%3A0x1e5a7eecb2a53a8c!2sVittal%20Mallya%20Rd%2C%20Bengaluru%2C%20Karnataka%20560001!5e0!3m2!1sen!2sin!4v1713000000000!5m2!1sen!2sin"
-        width="100%" height="420" style="border:0;display:block;filter:grayscale(40%) contrast(1.1) brightness(0.85)"
+        width="100%" height="420"
+        style="border:0;display:block;filter: grayscale(1) invert(0.9) contrast(1.1) brightness(0.85)"
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
         title="Kalp &amp; Co Location — Vittal Mallya Rd, Bengaluru"></iframe>
     </div>
