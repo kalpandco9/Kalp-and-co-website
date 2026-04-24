@@ -359,25 +359,6 @@
       padding-left: 10px
     }
 
-    .mobile-sub {
-      list-style: none;
-      padding: 0 0 14px 16px
-    }
-
-    .mobile-sub li a {
-      display: block;
-      font-size: 12px;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--warm-gray);
-      text-decoration: none;
-      padding: 7px 0;
-      transition: color .2s
-    }
-
-    .mobile-sub li a:hover {
-      color: var(--gold)
-    }
 
     .mobile-menu-info {
       margin-top: 40px;
@@ -1012,7 +993,7 @@
 
       .service-row {
         grid-template-columns: 48px 1fr;
-        gap: 18px
+        gap: 12px
       }
 
       .service-desc,
@@ -1026,6 +1007,10 @@
 
       .process-grid {
         grid-template-columns: repeat(2, 1fr)
+      }
+
+      .sc-num {
+        font-size: 72px
       }
 
       .ps-arrow {
@@ -1048,6 +1033,17 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 20px
+      }
+    }
+
+    @media(max-width:480px) {
+      .process-grid {
+        grid-template-columns: 1fr
+      }
+
+      .service-row {
+        grid-template-columns: 1fr;
+        gap: 8px
       }
     }
   </style>
@@ -1112,14 +1108,7 @@
   <div class="mobile-menu" id="mobileMenu">
     <ul class="mobile-menu-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a>
-        <ul class="mobile-sub">
-          <li><a href="#social">Social Media</a></li>
-          <li><a href="#digital">Digital Advertising</a></li>
-          <li><a href="#photography">Photography</a></li>
-          <li><a href="#video">Videography</a></li>
-        </ul>
-      </li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="facility.html">Facility</a></li>
       <li><a href="work.html">Work Done</a></li>
       <li><a href="contact.html">Contact</a></li>

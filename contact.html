@@ -1045,7 +1045,7 @@
       }
 
       .map-info-strip {
-        grid-template-columns: 1fr 1fr
+        grid-template-columns: 1fr
       }
 
       footer {
@@ -1183,22 +1183,25 @@
           </svg> Instagram &#8599;</a>
       </div>
     </div>
-    <div class="contact-form reveal">
+    <form class="contact-form reveal" id="contact-form">
+      <input type="hidden" name="_subject" value="New Enquiry — Kalp &amp; Co">
       <div class="form-row">
-        <div class="form-group"><label for="fname">First Name</label><input id="fname" type="text" placeholder="Arjun">
+        <div class="form-group"><label for="fname">First Name</label><input id="fname" name="first_name" type="text"
+            placeholder="Arjun" required>
         </div>
-        <div class="form-group"><label for="lname">Last Name</label><input id="lname" type="text" placeholder="Sharma">
+        <div class="form-group"><label for="lname">Last Name</label><input id="lname" name="last_name" type="text"
+            placeholder="Sharma">
         </div>
       </div>
-      <div class="form-group"><label for="email">Email Address</label><input id="email" type="email"
-          placeholder="arjun@yourbrand.com"></div>
-      <div class="form-group"><label for="company">Company / Brand Name</label><input id="company" type="text"
-          placeholder="Your Brand"></div>
-      <div class="form-group"><label for="phone">Phone Number</label><input id="phone" type="tel"
+      <div class="form-group"><label for="email">Email Address</label><input id="email" name="email" type="email"
+          placeholder="arjun@yourbrand.com" required></div>
+      <div class="form-group"><label for="company">Company / Brand Name</label><input id="company" name="company"
+          type="text" placeholder="Your Brand"></div>
+      <div class="form-group"><label for="phone">Phone Number</label><input id="phone" name="phone" type="tel"
           placeholder="+91 XXXXX XXXXX"></div>
       <div class="form-group">
         <label for="service">Service You're Interested In</label>
-        <select id="service">
+        <select id="service" name="service">
           <option value="">Select a service</option>
           <option>Social Media Marketing</option>
           <option>Digital Advertising</option>
@@ -1215,10 +1218,11 @@
       <div class="form-group form-group-other" id="other-service-group"
         style="max-height:0;overflow:hidden;opacity:0;margin-top:-10px;transition:max-height .4s ease,opacity .3s ease,margin-top .3s ease;padding:0">
         <label for="other-service">Please Specify</label>
-        <input id="other-service" type="text" placeholder="e.g. Influencer Marketing, Event Coverage…">
+        <input id="other-service" name="service_other" type="text"
+          placeholder="e.g. Influencer Marketing, Event Coverage…">
       </div>
       <div class="form-group"><label for="budget">Approximate Budget</label>
-        <select id="budget">
+        <select id="budget" name="budget">
           <option value="">Select range</option>
           <option>Under ₹50,000</option>
           <option>₹50,000 – ₹2,00,000</option>
@@ -1229,9 +1233,10 @@
         </select>
       </div>
       <div class="form-group"><label for="message">Tell Us About Your Project</label><textarea id="message"
-          placeholder="Give us the brief — what's the vision, the timeline, the ambition?"></textarea></div>
-      <button class="form-submit" id="submit-btn">Send Enquiry</button>
-    </div>
+          name="message" placeholder="Give us the brief — what's the vision, the timeline, the ambition?"></textarea>
+      </div>
+      <button class="form-submit" id="submit-btn" type="submit">Send Enquiry</button>
+    </form>
   </section>
 
   <!-- QUICK INFO CARDS -->
@@ -1417,13 +1422,32 @@
         otherGroup.style.padding = '0';
       }
     });
-    // FORM SUBMIT
-    document.getElementById('submit-btn').addEventListener('click', function (e) {
+    // FORM SUBMIT — replace YOUR_FORM_ID with your Formspree form ID (formspree.io)
+    var contactForm = document.getElementById('contact-form');
+    var submitBtn = document.getElementById('submit-btn');
+    contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      this.textContent = 'Sent! We\'ll be in touch.';
-      this.style.background = 'var(--charcoal)';
-      this.style.color = 'var(--gold)';
-      this.style.border = '1px solid rgba(201,168,76,.4)';
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+      fetch('https://formspree.io/f/xkokyzwo', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(contactForm)
+      }).then(function (res) {
+        if (res.ok) {
+          submitBtn.textContent = 'Sent! We\'ll be in touch.';
+          submitBtn.style.background = 'var(--charcoal)';
+          submitBtn.style.color = 'var(--gold)';
+          submitBtn.style.border = '1px solid rgba(201,168,76,.4)';
+          contactForm.reset();
+        } else {
+          submitBtn.textContent = 'Something went wrong — try again.';
+          submitBtn.disabled = false;
+        }
+      }).catch(function () {
+        submitBtn.textContent = 'Something went wrong — try again.';
+        submitBtn.disabled = false;
+      });
     });
   </script>
 </body>

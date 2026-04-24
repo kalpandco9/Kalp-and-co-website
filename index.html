@@ -365,25 +365,6 @@
       padding-left: 10px
     }
 
-    .mobile-sub {
-      list-style: none;
-      padding: 0 0 14px 16px
-    }
-
-    .mobile-sub li a {
-      display: block;
-      font-size: 12px;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--warm-gray);
-      text-decoration: none;
-      padding: 7px 0;
-      transition: color .2s
-    }
-
-    .mobile-sub li a:hover {
-      color: var(--gold)
-    }
 
     .mobile-menu-info {
       margin-top: 40px;
@@ -897,13 +878,13 @@
     }
 
     #brands {
-      background: var(--cream);
-      border-top: 1px solid rgba(201, 168, 76, .3);
+      background: #f7f3ec;
+      border-top: 1px solid rgba(14, 13, 11, .08);
       text-align: center
     }
 
     #brands .section-label {
-      color: var(--gold)
+      color: var(--warm-gray)
     }
 
     #brands .section-label::before {
@@ -925,7 +906,7 @@
 
     .brands-sub {
       font-size: 14px;
-      color: var(--warm-gray);
+      color: rgba(14, 13, 11, .5);
       margin-bottom: 72px
     }
 
@@ -939,63 +920,36 @@
     }
 
     .brand-cell {
-      background: var(--cream);
-      padding: 38px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 17px;
-      font-weight: 300;
-      color: rgba(14, 13, 11, .35);
-      letter-spacing: .08em;
-      transition: color .3s, background .3s;
-      cursor: default
-    }
-
-    .brand-cell:hover {
-      color: var(--ink);
-      background: rgba(201, 168, 76, .1)
-    }
-
-    .brands-note {
-      font-size: 11px;
-      color: rgba(14, 13, 11, .35);
-      margin-top: 32px;
-      letter-spacing: .1em
-    }
-
-    .brand-cell {
-      background: var(--cream);
-      padding: 40px 20px;
+      background: #ffffff;
+      padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 120px;
-      /* Maintains consistent row height */
       overflow: hidden;
+      cursor: default
     }
 
-    /* Image behavior */
     .brand-cell img {
-      width: auto;
-      height: auto;
-      max-width: 80%;
-      /* Keeps logo from touching the edges */
-      max-height: 50px;
-      /* Limits height for visual balance */
-      object-fit: contain;
-
-      /* High-end aesthetic: Grayscale by default */
-      filter: grayscale(1) opacity(0.6);
-      transition: all 0.4s ease-in-out;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1) opacity(0.75);
+      transition: filter 0.4s ease-in-out;
     }
 
-    /* Hover effect */
     .brand-cell:hover img {
       filter: grayscale(0) opacity(1);
-      transform: scale(1.08);
     }
+
+    .brands-note {
+      font-size: 11px;
+      color: rgba(14, 13, 11, .4);
+      margin-top: 32px;
+      letter-spacing: .1em
+    }
+
+
 
     #services-teaser {
       border-top: 1px solid rgba(201, 168, 76, .15)
@@ -1205,11 +1159,7 @@
 
     .work-card:hover .wc-img {
       opacity: 0.6;
-      /* Brightens slightly on hover */
-      transform: scale(1.1);
-      /* Subtle zoom */
       filter: grayscale(0);
-      /* Brings back full color */
     }
 
     .wc-num {
@@ -1412,8 +1362,20 @@
         gap: 44px
       }
 
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .stat-box {
+        padding: 40px 24px
+      }
+
+      .stat-num {
+        font-size: 42px
+      }
+
       .brands-grid {
-        grid-template-columns: repeat(3, 1fr)
+        grid-template-columns: repeat(2, 1fr)
       }
 
       .vision-pillars,
@@ -1429,7 +1391,17 @@
         gap: 24px
       }
 
+      .about-number {
+        font-size: 80px
+      }
 
+      .wc-num {
+        font-size: 48px
+      }
+
+      #hero {
+        min-height: auto
+      }
 
       #cta-strip {
         flex-direction: column;
@@ -1447,6 +1419,20 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 20px
+      }
+    }
+
+    @media(max-width:480px) {
+      .stats-grid {
+        grid-template-columns: 1fr
+      }
+
+      .brands-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .work-preview-grid {
+        grid-template-columns: 1fr
       }
     }
   </style>
@@ -1511,14 +1497,7 @@
   </nav>
   <div class="mobile-menu" id="mobileMenu">
     <ul class="mobile-menu-links">
-      <li><a href="index.html">Home</a>
-        <ul class="mobile-sub">
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#vision">Vision</a></li>
-          <li><a href="#usp">Why Kalp &amp; Co</a></li>
-          <li><a href="#brands">Brands</a></li>
-        </ul>
-      </li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="facility.html">Facility</a></li>
       <li><a href="work.html">Work Done</a></li>
@@ -1654,25 +1633,25 @@
     <p class="brands-sub reveal">A curated portfolio of partners across F&amp;B, real estate, fashion, wellness,
       hospitality, and lifestyle.</p>
     <div class="brands-grid reveal">
-      <div class="brand-cell"><img src="assets/logos/image0.jpeg" alt="Brand Logo 0"></div>
-      <div class="brand-cell"><img src="assets/logos/image1.jpeg" alt="Brand Logo 1"></div>
+      <div class="brand-cell"><img src="assets/logos/image0.png" alt="Brand Logo 0"></div>
+      <div class="brand-cell"><img src="assets/logos/image1.png" alt="Brand Logo 1"></div>
       <div class="brand-cell"><img src="assets/logos/image2.png" alt="Brand Logo 2"></div>
       <div class="brand-cell"><img src="assets/logos/image3.png" alt="Brand Logo 3"></div>
-      <div class="brand-cell"><img src="assets/logos/image4.jpeg" alt="Brand Logo 4"></div>
-      <div class="brand-cell"><img src="assets/logos/image5.jpeg" alt="Brand Logo 5"></div>
-      <div class="brand-cell"><img src="assets/logos/image6.jpeg" alt="Brand Logo 6"></div>
+      <div class="brand-cell"><img src="assets/logos/image4.png" alt="Brand Logo 4"></div>
+      <div class="brand-cell"><img src="assets/logos/image5.png" alt="Brand Logo 5"></div>
+      <div class="brand-cell"><img src="assets/logos/image6.png" alt="Brand Logo 6"></div>
       <div class="brand-cell"><img src="assets/logos/image7.png" alt="Brand Logo 7"></div>
       <div class="brand-cell"><img src="assets/logos/image8.png" alt="Brand Logo 8"></div>
       <div class="brand-cell"><img src="assets/logos/image9.png" alt="Brand Logo 9"></div>
       <div class="brand-cell"><img src="assets/logos/image10.png" alt="Brand Logo 10"></div>
-      <div class="brand-cell"><img src="assets/logos/image11.jpeg" alt="Brand Logo 11"></div>
+      <div class="brand-cell"><img src="assets/logos/image11.png" alt="Brand Logo 11"></div>
       <div class="brand-cell"><img src="assets/logos/image12.png" alt="Brand Logo 12"></div>
       <div class="brand-cell"><img src="assets/logos/image13.png" alt="Brand Logo 13"></div>
       <div class="brand-cell"><img src="assets/logos/image14.png" alt="Brand Logo 14"></div>
-      <div class="brand-cell"><img src="assets/logos/image15.jpeg" alt="Brand Logo 15"></div>
+      <div class="brand-cell"><img src="assets/logos/image15.png" alt="Brand Logo 15"></div>
       <div class="brand-cell"><img src="assets/logos/image16.png" alt="Brand Logo 16"></div>
-      <div class="brand-cell"><img src="assets/logos/image17.jpeg" alt="Brand Logo 17"></div>
-      <div class="brand-cell"><img src="assets/logos/image18.jpeg" alt="Brand Logo 18"></div>
+      <div class="brand-cell"><img src="assets/logos/image17.png" alt="Brand Logo 17"></div>
+      <div class="brand-cell"><img src="assets/logos/image18.png" alt="Brand Logo 18"></div>
       <div class="brand-cell"><img src="assets/logos/image19.png" alt="Brand Logo 19"></div>
     </div>
     <p class="brands-note reveal">Trusted by brands that dare to stand out.</p>

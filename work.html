@@ -87,14 +87,13 @@
       left: 0;
       right: 0;
       z-index: 200;
-      transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1), background .4s ease, border-bottom-color .4s;
-      border-bottom: 1px solid transparent
+      transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1);
+      background: var(--ink);
+      border-bottom: 1px solid rgba(201, 168, 76, .15)
     }
 
     nav.scrolled {
-      background: rgba(14, 13, 11, .96);
-      backdrop-filter: blur(16px);
-      border-bottom-color: rgba(201, 168, 76, .15)
+      background: var(--ink);
     }
 
     nav.nav-hidden {
@@ -365,25 +364,6 @@
       padding-left: 10px
     }
 
-    .mobile-sub {
-      list-style: none;
-      padding: 0 0 14px 16px
-    }
-
-    .mobile-sub li a {
-      display: block;
-      font-size: 12px;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--warm-gray);
-      text-decoration: none;
-      padding: 7px 0;
-      transition: color .2s
-    }
-
-    .mobile-sub li a:hover {
-      color: var(--gold)
-    }
 
     .mobile-menu-info {
       margin-top: 40px;
@@ -913,11 +893,69 @@
       color: var(--gold)
     }
 
-    .case-content p {
+    .case-accordion {
+      margin: 24px 0 32px
+    }
+
+    .ca-item {
+      border-bottom: 1px solid rgba(201, 168, 76, .1)
+    }
+
+    .ca-item:first-child {
+      border-top: 1px solid rgba(201, 168, 76, .1)
+    }
+
+    .ca-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 0;
+      background: none;
+      border: none;
+      color: var(--warm-gray);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-align: left;
+      transition: color .2s
+    }
+
+    .ca-trigger:hover,
+    .ca-item.open .ca-trigger {
+      color: var(--cream)
+    }
+
+    .ca-arrow {
+      font-size: 10px;
+      color: var(--gold);
+      transition: transform .3s ease;
+      flex-shrink: 0;
+      margin-left: 12px
+    }
+
+    .ca-item.open .ca-arrow {
+      transform: rotate(180deg)
+    }
+
+    .ca-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease
+    }
+
+    .ca-item.open .ca-body {
+      max-height: 400px
+    }
+
+    .ca-body p {
       font-size: 14px;
       color: var(--warm-gray);
       line-height: 1.8;
-      margin-bottom: 14px
+      padding-bottom: 20px
     }
 
     .case-results {
@@ -1201,10 +1239,22 @@
         grid-template-columns: 1fr 1fr
       }
 
+      .project-card {
+        height: 300px;
+        padding: 24px
+      }
+
       .case-study,
       .case-study.reverse {
         grid-template-columns: 1fr;
-        direction: ltr
+        direction: ltr;
+        gap: 36px;
+        margin-bottom: 48px;
+        padding-bottom: 48px
+      }
+
+      .case-visual {
+        min-height: 240px
       }
 
       .stats-grid {
@@ -1214,6 +1264,10 @@
       .case-results {
         flex-wrap: wrap;
         gap: 24px
+      }
+
+      .filter-tab {
+        padding: 11px 14px
       }
 
       #work-cta {
@@ -1231,6 +1285,25 @@
       .footer-links {
         justify-content: center;
         flex-wrap: wrap;
+        gap: 20px
+      }
+    }
+
+    @media(max-width:480px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr
+      }
+
+      .project-card {
+        height: 260px
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr
+      }
+
+      .case-results {
+        flex-direction: column;
         gap: 20px
       }
     }
@@ -1299,13 +1372,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="facility.html">Facility</a></li>
-      <li><a href="work.html">Work Done</a>
-        <ul class="mobile-sub">
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#case-studies">Case Studies</a></li>
-          <li><a href="#stats">Numbers</a></li>
-        </ul>
-      </li>
+      <li><a href="work.html">Work Done</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="mobile-menu-info">
@@ -1373,7 +1440,7 @@
       </div>
 
       <div class="project-card" data-cat="film">
-        <img src="assets/logos/image0.jpeg" alt="Brand 03" class="pc-img">
+        <img src="assets/logos/image0.png" alt="Brand 03" class="pc-img">
         <div class="pc-bg-num">03</div>
         <span class="pc-tag">Film</span>
         <div class="pc-category">Brand Film</div>
@@ -1382,7 +1449,7 @@
       </div>
 
       <div class="project-card" data-cat="brand">
-        <img src="assets/logos/image1.jpeg" alt="Brand 04" class="pc-img">
+        <img src="assets/logos/image1.png" alt="Brand 04" class="pc-img">
         <div class="pc-bg-num">04</div>
         <span class="pc-tag">Branding</span>
         <div class="pc-category">Brand Identity</div>
@@ -1409,7 +1476,7 @@
       </div>
 
       <div class="project-card" data-cat="photo">
-        <img src="assets/logos/image4.jpeg" alt="Brand 07" class="pc-img">
+        <img src="assets/logos/image4.png" alt="Brand 07" class="pc-img">
         <div class="pc-bg-num">07</div>
         <span class="pc-tag">Photo</span>
         <div class="pc-category">Lifestyle Photography</div>
@@ -1418,7 +1485,7 @@
       </div>
 
       <div class="project-card" data-cat="film">
-        <img src="assets/logos/image5.jpeg" alt="Brand 08" class="pc-img">
+        <img src="assets/logos/image5.png" alt="Brand 08" class="pc-img">
         <div class="pc-bg-num">08</div>
         <span class="pc-tag">Film</span>
         <div class="pc-category">Ad Film Series</div>
@@ -1427,7 +1494,7 @@
       </div>
 
       <div class="project-card" data-cat="brand">
-        <img src="assets/logos/image6.jpeg" alt="Brand 09" class="pc-img">
+        <img src="assets/logos/image6.png" alt="Brand 09" class="pc-img">
         <div class="pc-bg-num">09</div>
         <span class="pc-tag">Branding</span>
         <div class="pc-category">Packaging Design</div>
@@ -1451,27 +1518,45 @@
         <div class="cv-label"></div>
       </div>
       <div class="case-content">
-        <span class="case-tag">Social Media</span>
-        <h3>Growing a brand from <em>zero to recognisable.</em></h3>
-        <p><strong style="color:var(--cream);font-weight:400">The Brief:</strong> A new F&amp;B brand with no social
-          presence needed to establish authority and build a loyal community within 6 months.</p>
-        <p><strong style="color:var(--cream);font-weight:400">Our Approach:</strong> We developed a content universe
-          grounded in brand culture — not just products. Weekly shoots, daily content, paid amplification, and
-          micro-influencer partnerships.</p>
-        <p><strong style="color:var(--cream);font-weight:400">The Result:</strong> 28,000 followers in 5 months, 3.8%
-          average engagement rate, 4x increase in monthly footfall.</p>
+        <span class="case-tag">Visual Storytelling &middot; Photography</span>
+        <h3>Krispy Kreme &mdash; <em>Joy, frame by frame.</em></h3>
+        <div class="case-accordion">
+          <div class="ca-item">
+            <button class="ca-trigger">The Brief <span class="ca-arrow">&#9660;</span></button>
+            <div class="ca-body">
+              <p>To visually capture the joy and indulgence at the heart of Krispy Kreme through a series of engaging,
+                scroll-stopping images that resonate with today's audience.</p>
+            </div>
+          </div>
+          <div class="ca-item">
+            <button class="ca-trigger">Our Approach <span class="ca-arrow">&#9660;</span></button>
+            <div class="ca-body">
+              <p>We built a visual direction around warm lighting to enhance the "fresh &amp; melt-in-your-mouth" feel,
+                minimal yet vibrant compositions to keep focus on the product, and lifestyle elements to evoke everyday
+                indulgence. Each frame was carefully styled to highlight texture, shine, and softness — then refined in
+                post to ensure colour accuracy aligned with brand guidelines.</p>
+            </div>
+          </div>
+          <div class="ca-item">
+            <button class="ca-trigger">The Result <span class="ca-arrow">&#9660;</span></button>
+            <div class="ca-body">
+              <p>A cohesive, premium content library with strong visual consistency across digital channels and enhanced
+                product appeal driving measurable engagement.</p>
+            </div>
+          </div>
+        </div>
         <div class="case-results">
           <div class="cr-stat">
-            <div class="cr-num">28K</div>
-            <div class="cr-label">Followers in 5 Months</div>
+            <div class="cr-num">Hero</div>
+            <div class="cr-label">Product Shots</div>
           </div>
           <div class="cr-stat">
-            <div class="cr-num">3.8%</div>
-            <div class="cr-label">Avg. Engagement Rate</div>
+            <div class="cr-num">4K</div>
+            <div class="cr-label">High-Res Capture</div>
           </div>
           <div class="cr-stat">
-            <div class="cr-num">4x</div>
-            <div class="cr-label">Footfall Increase</div>
+            <div class="cr-num">100%</div>
+            <div class="cr-label">In-House Production</div>
           </div>
         </div>
       </div>
@@ -1483,26 +1568,45 @@
         <div class="cv-label"></div>
       </div>
       <div class="case-content">
-        <span class="case-tag">Brand Film</span>
-        <h3>A film that <em>redefined</em> a category.</h3>
-        <p><strong style="color:var(--cream);font-weight:400">The Brief:</strong> A heritage real estate brand wanted a
-          brand film that positioned them as modern without abandoning their 30-year legacy.</p>
-        <p><strong style="color:var(--cream);font-weight:400">Our Approach:</strong> A 90-second cinematic film using
-          archival storytelling techniques, shot over 2 days across Bangalore. Full post production in our suite.</p>
-        <p><strong style="color:var(--cream);font-weight:400">The Result:</strong> 1.2M views in 30 days, regional press
-          coverage, and a 40% increase in site enquiries in Q1.</p>
+        <span class="case-tag">Personal Brand &middot; Fashion &amp; Couture</span>
+        <h3>Pankaj Soni &mdash; <em>Zero to 103K.</em></h3>
+        <div class="case-accordion">
+          <div class="ca-item">
+            <button class="ca-trigger">The Brief <span class="ca-arrow">&#9660;</span></button>
+            <div class="ca-body">
+              <p>Pankaj Soni — a Bangalore-based couturier with a sharp design sensibility — came to us with no digital
+                presence. We were brought in to build his personal brand entirely from zero.</p>
+            </div>
+          </div>
+          <div class="ca-item">
+            <button class="ca-trigger">Our Approach <span class="ca-arrow">&#9660;</span></button>
+            <div class="ca-body">
+              <p>We led with curated content around his bespoke designs, drawing in influencers and celebrities who wore
+                his work organically. Runway appearances across Delhi, Mumbai, and Bangalore positioned him as the face
+                of new-age designer custom clothing.</p>
+            </div>
+          </div>
+          <div class="ca-item">
+            <button class="ca-trigger">The Result <span class="ca-arrow">&#9660;</span></button>
+            <div class="ca-body">
+              <p>From zero to a verified 103K community in 5 years, with a ~4% engagement rate and 1,862 posts of
+                consistent brand storytelling. Footfall and client inquiries grew an estimated 4&times;, expanding the
+                label's footprint across three cities.</p>
+            </div>
+          </div>
+        </div>
         <div class="case-results">
           <div class="cr-stat">
-            <div class="cr-num">1.2M</div>
-            <div class="cr-label">Views in 30 Days</div>
+            <div class="cr-num">103K</div>
+            <div class="cr-label">Instagram Followers</div>
           </div>
           <div class="cr-stat">
-            <div class="cr-num">40%</div>
-            <div class="cr-label">Enquiry Increase</div>
+            <div class="cr-num">~4%</div>
+            <div class="cr-label">Avg. Engagement Rate</div>
           </div>
           <div class="cr-stat">
-            <div class="cr-num">2</div>
-            <div class="cr-label">Days of Shooting</div>
+            <div class="cr-num">4&times;+</div>
+            <div class="cr-label">Footfall &amp; Inquiry Growth</div>
           </div>
         </div>
       </div>
@@ -1581,6 +1685,17 @@
     var reveals = document.querySelectorAll('.reveal');
     var io = new IntersectionObserver(function (entries) { entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target) } }) }, { threshold: .1 });
     reveals.forEach(function (el) { io.observe(el) });
+    // CASE STUDY ACCORDIONS
+    document.querySelectorAll('.case-accordion').forEach(function (accordion) {
+      accordion.querySelectorAll('.ca-trigger').forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          var item = trigger.parentElement;
+          var isOpen = item.classList.contains('open');
+          accordion.querySelectorAll('.ca-item').forEach(function (i) { i.classList.remove('open') });
+          if (!isOpen) item.classList.add('open');
+        });
+      });
+    });
     // FILTER TABS
     var tabs = document.querySelectorAll('.filter-tab');
     var cards = document.querySelectorAll('.project-card');
