@@ -607,8 +607,7 @@
     .pc-view-btn {
       position: absolute;
       bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%) translateY(8px);
+      right: 24px;
       z-index: 3;
       background: var(--gold);
       color: var(--ink);
@@ -622,12 +621,13 @@
       cursor: pointer;
       opacity: 0;
       transition: opacity .3s, transform .3s;
-      white-space: nowrap
+      white-space: nowrap;
+      transform: translateY(8px)
     }
 
     .project-card:hover .pc-view-btn {
       opacity: 1;
-      transform: translateX(-50%) translateY(0)
+      transform: translateY(0)
     }
 
     .project-card {
@@ -1219,10 +1219,7 @@
 
       .pc-view-btn {
         opacity: 1;
-        left: auto;
-        right: 20px;
-        bottom: 20px;
-        transform: none
+        transform: translateY(0)
       }
 
       .case-study,
@@ -1510,7 +1507,7 @@
     </div>
     <div class="case-study reverse reveal" id="cs-pankaj-soni">
       <div class="case-visual"
-        style="background-image: linear-gradient(rgba(14, 13, 11, 0.4), rgba(14, 13, 11, 0.4)), url('assets/pankaj-soni-img.jpeg');">
+        style="background-image: url('assets/selected-work/pankaj-soni-img.JPG'); background-position: center 70%;">
         <div class="cv-watermark">02</div>
         <div class="cv-label"></div>
       </div>
