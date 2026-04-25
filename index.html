@@ -450,21 +450,23 @@
       text-align: right
     }
 
-    .hero-scroll {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .hero-cta {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 13px 28px;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
       font-size: 11px;
-      letter-spacing: .2em;
+      font-weight: 600;
+      letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--gold)
+      text-decoration: none;
+      transition: background .25s, color .25s
     }
 
-    .scroll-line {
-      width: 40px;
-      height: 1px;
-      background: var(--gold);
-      animation: pulseLine 1.5s ease infinite alternate
+    .hero-cta:hover {
+      background: var(--gold-light)
     }
 
     .marquee-strip {
@@ -1518,9 +1520,7 @@
         audiences remember, and the culture they choose to belong to.</p>
       <div>
         <p class="hero-location">Vittal Mallya Rd, Bengaluru</p>
-        <div class="hero-scroll">
-          <div class="scroll-line"></div>Scroll to explore
-        </div>
+        <a href="contact.html" class="hero-cta">Start a Project &#8599;</a>
       </div>
     </div>
   </section>

@@ -604,6 +604,32 @@
       background: rgba(201, 168, 76, .08)
     }
 
+    .pc-view-btn {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      z-index: 3;
+      background: var(--gold);
+      color: var(--ink);
+      border: none;
+      padding: 10px 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity .3s, transform .3s;
+      white-space: nowrap
+    }
+
+    .project-card:hover .pc-view-btn {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0)
+    }
+
     .project-card {
       position: relative;
       height: 480px;
@@ -667,30 +693,16 @@
     .pc-name,
     .pc-desc {
       position: relative;
-      z-index: 2
+      z-index: 2;
+      display: none
     }
 
     .pc-bg-num {
-      position: absolute;
-      top: -10px;
-      right: 12px;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 120px;
-      color: rgba(201, 168, 76, .08);
-      line-height: 1;
-      pointer-events: none
+      display: none
     }
 
     .pc-tag {
-      position: absolute;
-      top: 28px;
-      right: 28px;
-      font-size: 10px;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--ink);
-      border: 1px solid rgba(14, 13, 11, .2);
-      padding: 5px 10px
+      display: none
     }
 
     .pc-category {
@@ -1204,6 +1216,27 @@
         padding: 24px
       }
 
+      .pc-name {
+        font-weight: 600
+      }
+
+      .pc-desc {
+        opacity: 1;
+        transform: translateY(0);
+        font-weight: 500;
+        color: rgba(14,13,11,.7)
+      }
+
+      .pc-category {
+        opacity: 1;
+        transform: translateY(0)
+      }
+
+      .pc-view-btn {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0)
+      }
+
       .case-study,
       .case-study.reverse {
         grid-template-columns: 1fr;
@@ -1388,6 +1421,7 @@
         <div class="pc-category">Visual Storytelling & Food Styling</div>
         <div class="pc-name">Krispy Kreme</div>
         <div class="pc-desc">Engaging, scroll-stopping imagery for digital indulgence.</div>
+        <button class="pc-view-btn" onclick="document.getElementById('cs-krispy-kreme').scrollIntoView({behavior:'smooth'})">View Work</button>
       </div>
 
       <div class="project-card" data-cat="brand">
@@ -1397,6 +1431,7 @@
         <div class="pc-category">Personal Brand Strategy & Identity</div>
         <div class="pc-name">Pankaj Soni</div>
         <div class="pc-desc">0 to 103K community growth & 4x inquiry increase.</div>
+        <button class="pc-view-btn" onclick="document.getElementById('cs-pankaj-soni').scrollIntoView({behavior:'smooth'})">View Work</button>
       </div>
 
       <div class="project-card" data-cat="film">
@@ -1471,7 +1506,7 @@
       <h2>The story<br><em>behind the work.</em></h2>
       <p>Selected case studies that illustrate our approach — from brief to measurable results.</p>
     </div>
-    <div class="case-study reveal">
+    <div class="case-study reveal" id="cs-krispy-kreme">
       <div class="case-visual"
         style="background-image: linear-gradient(rgba(14, 13, 11, 0.4), rgba(14, 13, 11, 0.4)), url('assets/krispy-kreme-cover.png');">
         <div class="cv-watermark">01</div>
@@ -1521,7 +1556,7 @@
         </div>
       </div>
     </div>
-    <div class="case-study reverse reveal">
+    <div class="case-study reverse reveal" id="cs-pankaj-soni">
       <div class="case-visual"
         style="background-image: linear-gradient(rgba(14, 13, 11, 0.4), rgba(14, 13, 11, 0.4)), url('assets/pankaj-soni-img.jpeg');">
         <div class="cv-watermark">02</div>
