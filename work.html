@@ -607,105 +607,67 @@
     .project-card {
       position: relative;
       height: 480px;
-      /* Consistent with your premium feel */
-      background: var(--ink);
-      padding: 40px;
+      background: #f7f4ef;
+      padding: 32px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       overflow: hidden;
-      border: 1px solid rgba(201, 168, 76, 0.1);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      transition: background .3s, border-color .3s;
+      cursor: default
     }
 
-    /* Background Image Layer */
+    .project-card:hover {
+      background: #f0ece3;
+      border-color: var(--gold)
+    }
+
     .pc-img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: contain;
-      opacity: 0.4;
-      /* Muted for text readability */
-      filter: grayscale(0.2);
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-      z-index: 0;
-    }
-
-    /* Gradient Overlay for Legibility */
-    .project-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(14, 13, 11, 0.95) 0%, rgba(14, 13, 11, 0.2) 70%);
-      z-index: 1;
-    }
-
-    /* Ensuring content stays on top */
-    .pc-bg-num,
-    .pc-tag,
-    .pc-category,
-    .pc-name,
-    .pc-desc {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* Styling for the card text */
-    .pc-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      color: var(--gold);
-      margin-bottom: 8px;
-    }
-
-    .pc-category {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--warm-gray);
-      margin-bottom: 4px;
-    }
-
-    .pc-desc {
-      font-size: 14px;
-      line-height: 1.5;
-      color: rgba(255, 255, 255, 0.7);
-      max-width: 90%;
-    }
-
-    /* Hover State */
-    .project-card:hover .pc-img {
-      opacity: 0.7;
-      transform: scale(1.05);
-      filter: grayscale(0);
-    }
-
-    .project-card:hover {
-      border-color: var(--gold);
-    }
-
-    .project-card {
-      background: var(--ink);
-      min-height: 310px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 32px;
-      position: relative;
-      overflow: hidden;
-      transition: background .3s;
-      cursor: default
-    }
-
-    .project-card:hover {
-      background: rgba(201, 168, 76, .04)
+      opacity: 0.85;
+      filter: grayscale(0.15);
+      z-index: 0
     }
 
     .project-card::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(14, 13, 11, .6) 0%, transparent 50%)
+      background: linear-gradient(to top, #f7f4ef 10%, rgba(247, 244, 239, .6) 5%, transparent 10%);
+      z-index: 1;
+      transition: opacity .4s ease
+    }
+
+    .project-card:hover::before {
+      opacity: 0
+    }
+
+    .project-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(247, 244, 239, .95) 0%, rgba(247, 244, 239, .6) 40%, transparent 70%);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity .4s ease
+    }
+
+    .project-card:hover::after {
+      opacity: 1
+    }
+
+    .pc-bg-num,
+    .pc-tag,
+    .pc-category,
+    .pc-name,
+    .pc-desc {
+      position: relative;
+      z-index: 2
     }
 
     .pc-bg-num {
@@ -714,9 +676,21 @@
       right: 12px;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 120px;
-      color: rgba(201, 168, 76, .05);
+      color: rgba(201, 168, 76, .08);
       line-height: 1;
       pointer-events: none
+    }
+
+    .pc-tag {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      border: 1px solid rgba(14, 13, 11, .2);
+      padding: 5px 10px
     }
 
     .pc-category {
@@ -725,7 +699,6 @@
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 8px;
-      position: relative;
       opacity: 0;
       transform: translateY(8px);
       transition: opacity .3s, transform .3s
@@ -740,14 +713,13 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 24px;
       font-weight: 300;
-      margin-bottom: 6px;
-      position: relative
+      color: var(--ink);
+      margin-bottom: 6px
     }
 
     .pc-desc {
       font-size: 12px;
-      color: var(--warm-gray);
-      position: relative;
+      color: rgba(14, 13, 11, .55);
       opacity: 0;
       transform: translateY(8px);
       transition: opacity .3s .05s, transform .3s .05s
@@ -756,18 +728,6 @@
     .project-card:hover .pc-desc {
       opacity: 1;
       transform: translateY(0)
-    }
-
-    .pc-tag {
-      position: absolute;
-      top: 28px;
-      right: 28px;
-      font-size: 10px;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(201, 168, 76, .3);
-      padding: 5px 10px
     }
 
     /* CASE STUDY */
