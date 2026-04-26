@@ -785,32 +785,54 @@
     }
 
     .pillar {
-      background: var(--charcoal);
-      padding: 44px 36px;
+      background: var(--ink);
+      padding: 48px 36px;
       text-align: left;
-      transition: background .3s
+      transition: background .3s;
+      position: relative;
+      overflow: hidden
     }
 
     .pillar:hover {
       background: rgba(201, 168, 76, .05)
     }
 
-    .pillar-icon {
-      font-size: 24px;
-      margin-bottom: 18px
+    .pillar-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 120px;
+      color: rgba(201, 168, 76, .05);
+      position: absolute;
+      top: -10px;
+      right: 16px;
+      line-height: 1;
+      pointer-events: none
+    }
+
+    .pillar-tag {
+      font-size: 10px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201, 168, 76, .3);
+      padding: 5px 10px;
+      display: inline-block;
+      margin-bottom: 28px;
+      position: relative
     }
 
     .pillar-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 21px;
+      font-size: 26px;
       font-weight: 400;
-      margin-bottom: 10px
+      margin-bottom: 14px;
+      position: relative
     }
 
     .pillar-text {
       font-size: 13px;
       color: var(--warm-gray);
-      line-height: 1.7
+      line-height: 1.7;
+      position: relative
     }
 
     #usp {
@@ -1583,11 +1605,26 @@
     <p class="vision-body reveal">We believe the future belongs to brands bold enough to stand for something. Our vision
       is to help them find that something &mdash; and broadcast it with precision, beauty, and cultural intelligence.
     </p>
-    <!--<div class="vision-pillars reveal">
-    <div class="pillar"><div class="pillar-icon">&#9672;</div><h3 class="pillar-title">Integrated by Design</h3><p class="pillar-text">Every discipline &mdash; strategy, design, production &mdash; speaks the same language. No silos, no friction. Seamless creative output from brief to broadcast.</p></div>
-    <div class="pillar"><div class="pillar-icon">&#9672;</div><h3 class="pillar-title">Culture-First Thinking</h3><p class="pillar-text">We don't just track trends &mdash; we help brands shape them. Our work is rooted in genuine cultural insight, designed to move real audiences.</p></div>
-    <div class="pillar"><div class="pillar-icon">&#9672;</div><h3 class="pillar-title">Uncompromising Quality</h3><p class="pillar-text">Our in-house studio exists for one reason: to ensure every pixel, every frame, every word is exactly right. No compromise on craft.</p></div>
-  </div>-->
+    <div class="vision-pillars reveal">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <span class="pillar-tag">Strategy &amp; Vision</span>
+        <h3 class="pillar-title">Integrated by Design</h3>
+        <p class="pillar-text">Every discipline &mdash; strategy, design, production &mdash; speaks the same language. No silos, no friction. Seamless creative output from brief to broadcast.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <span class="pillar-tag">Culture &amp; Insight</span>
+        <h3 class="pillar-title">Culture-First Thinking</h3>
+        <p class="pillar-text">We don't just track trends &mdash; we help brands shape them. Our work is rooted in genuine cultural insight, designed to move real audiences.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <span class="pillar-tag">Craft &amp; Quality</span>
+        <h3 class="pillar-title">Uncompromising Quality</h3>
+        <p class="pillar-text">Our in-house studio exists for one reason: to ensure every pixel, every frame, every word is exactly right. No compromise on craft.</p>
+      </div>
+    </div>
   </section>
   <section id="usp">
     <div class="usp-grid">
@@ -1642,7 +1679,7 @@
       <div class="brand-cell"><img src="assets/logos/image3.png" alt="Brand Logo 3"></div>
       <div class="brand-cell"><img src="assets/logos/image4.png" alt="Brand Logo 4"></div>
       <div class="brand-cell"><img src="assets/logos/image5.png" alt="Brand Logo 5"></div>
-      <div class="brand-cell"><img src="assets/logos/image6.png" alt="Brand Logo 6"></div>
+      <div class="brand-cell"><img src="assets/logos/image6.png" alt="Brand Logo 6" style="max-width:55%;max-height:55%"></div>
       <div class="brand-cell"><img src="assets/logos/image7.png" alt="Brand Logo 7"></div>
       <div class="brand-cell"><img src="assets/logos/image8.png" alt="Brand Logo 8"></div>
       <div class="brand-cell"><img src="assets/logos/image9.png" alt="Brand Logo 9"></div>
@@ -1760,7 +1797,7 @@
       <li><a href="work.html">Work Done</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <p class="footer-copy">&copy; 2025 Kalp &amp; Co. Vittal Mallya Rd, Bengaluru.</p>
+    <p class="footer-copy">&copy; 2026 Kalp &amp; Co. Vittal Mallya Rd, Bengaluru.</p>
   </footer>
   <script>
     var cursor = document.getElementById('cursor'), ring = document.getElementById('cursorRing'), mx = 0, my = 0, rx = 0, ry = 0;
