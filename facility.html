@@ -1231,7 +1231,7 @@
     .kc-sc-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 380px 380px;
+      grid-template-rows: minmax(520px, auto) minmax(520px, auto);
       gap: 2px;
     }
 
@@ -1361,7 +1361,21 @@
       }
 
       .kc-sc-cap {
-        min-height: 300px;
+        min-height: 400px;
+      }
+
+      .kc-sc-cap-overlay {
+        background: linear-gradient(to top,
+          rgba(14,13,11,.6) 0%,
+          rgba(14,13,11,.15) 60%,
+          transparent 100%);
+      }
+
+      .kc-sc-cap-body {
+        position: relative;
+        bottom: auto;
+        padding: 32px 24px;
+        background: rgba(14,13,11,.45);
       }
     }
 
@@ -1371,7 +1385,7 @@
       }
 
       .kc-sc-cap {
-        min-height: 260px;
+        min-height: 360px;
       }
 
       .gallery-cell {
@@ -1565,8 +1579,8 @@
 
       <!-- 03 · Videography & Production -->
       <div class="kc-sc-cap">
-        <img class="kc-sc-cap-img" src="https://images.unsplash.com/photo-1536240478700-b869ad10e1e5?w=1200&q=80"
-          alt="4K video production studio setup" loading="lazy" />
+        <img class="kc-sc-cap-img" src="https://images.unsplash.com/photo-1598387181032-a3103a2db5b3?w=1200&q=80"
+          alt="Professional camera setup in studio" loading="lazy" />
         <div class="kc-sc-cap-overlay"></div>
         <span class="kc-sc-watermark">03</span>
         <div class="kc-sc-cap-body">
